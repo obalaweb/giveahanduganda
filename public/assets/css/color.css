@@ -1,0 +1,72 @@
+:root {
+  --theme-color: #00715D;
+  --primary-color:#25283A;
+  --secondary-color: #F65024;
+  --white-color:#FFFFFF;
+  --base-color:#6F7775;
+
+
+  --primary-font: 'Yeseva One';
+  --secondary-font: 'Poppins';
+  --subtitle-font: 'Caveat';
+}
+
+/* template-color */
+
+.scroll-top{
+  background: var(--theme-color);
+}
+
+.home-two-header .main-menu .navigation > li > a{
+  color: var(--white-color);
+}
+
+.home-two-header .sticky-header .main-menu .navigation > li > a{
+  color: var(--primary-color);
+}
+
+.home-two-header .sticky-header .main-menu .navigation > li > a:hover{
+  color: #EB9309 !important;
+}
+
+.main-menu .navigation > li > a:hover,
+.main-menu .navigation > li > ul > li > a:hover,
+.main-menu .navigation > li > .megamenu li > a:hover{
+	color: #EB9309 !important;
+}
+
+.main-menu .navigation > li > .active, .style-three .main-menu .navigation > li > .active{
+  position: relative;
+  color: #EB9309;
+}
+
+.main-menu .navigation > li > ul > li .active{
+  position: relative;
+  color: #1F2230;
+}
+
+.main-menu .navigation > li > ul > li > ul > li > a:hover{
+  color: #ffffff;
+}
+
+.handle-preloader.home-1{
+	background: #7FB432;;
+}
+
+.sticky-header{
+  background: #21293B;
+}
+.style-three .sticky-header .main-menu .navigation > li a{
+  color: #ffffff;
+}
+.style-three .sticky-header .main-menu .navigation > li .active{
+  color: #EB9309;
+}
+.style-three .sticky-header .main-menu .navigation > li ul li .active{
+  color: #21293B;
+}
+.main-menu .navigation > li > ul > li:hover > a, 
+.main-menu .navigation > li > .megamenu li:hover > a,
+.main-header .sticky-header .main-menu .navigation > li ul li a:hover{
+  color: #1F2230 !important;
+}
