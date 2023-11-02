@@ -3,7 +3,7 @@ name: 🚀 Deploy on push main
 on: 
   push:
     branches:    
-      - dental 
+      - main 
     
 jobs:
   web-deploy:
@@ -22,4 +22,4 @@ jobs:
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASS }}
           port: ${{ secrets.PORT }}
-          script: "cd domains/giveahanduganda.com/public_html && git pull origin dental"
+          script: "cd domains/giveahanduganda.com/public_html && git pull origin main"
