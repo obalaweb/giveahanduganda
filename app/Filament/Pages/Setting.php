@@ -17,6 +17,7 @@ use Filament\Support\Exceptions\Halt;
 class Setting extends Page implements HasForms {
 
 	public ?array $data = [];
+	public $settings;
 
 	private static ?string $model = Settings::class;
 
@@ -26,16 +27,29 @@ class Setting extends Page implements HasForms {
 
 	use InteractsWithForms;
 
-	public function mount(): void {
-		$this->form->fill(Settings::first()->toArray());
+	public function mount($settings = null): void {
+		if ($settings === null) {
+			$settings = Settings::first();
+		}
+
+		$this->settings = $settings;
+
+		if ($this->settings) {
+			$this->form->fill($this->settings->toArray());
+		}
 	}
 
 	public function save(): void {
 		try {
 			$data = $this->form->getState();
 
-			$setting = Settings::first();
-			$setting->update($data);
+			dd($data);
+
+			if ($this->settings) {
+				$this->settings->update($data);
+			} else {
+				Settings::create($data);
+			}
 		} catch (Halt $exception) {
 			return;
 		}
@@ -57,7 +71,8 @@ class Setting extends Page implements HasForms {
 
 						Textarea::make('address'),
 
-						RichEditor::make('about'),
+						RichEditor::make('about')
+							->required(),
 
 						TextInput::make('fb_link')
 							->required(),

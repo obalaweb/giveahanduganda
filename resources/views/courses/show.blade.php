@@ -4,10 +4,9 @@
             <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-02.jpg);"></div>
 
             <div class="common-banner-title">
-                <h3>How to build secure life of a poor children</h3>
-                <a href="index-2.html">Home </a> <span>/</span>
-                <a href="events-single.html">Donation Campaigns</a> <span>/</span>
-                <a href="events.html">Campaign Details</a>
+                <h3>{{ $course->title }}</h3>
+                <a href="{{ route('home') }}">Home </a> <span>/</span>
+                <a href="events-single.html">Donation Campaigns</a> <span></span>
             </div>
         </section>
         <!-- common banner -->
@@ -19,27 +18,23 @@
                     <div class="col-lg-9">
                         <div class="single-left-container">
                             <div class="causes-single-left-image">
-                                <img src="assets/images/gallery/causes-single.jpg" alt="image">
+                                <img src="{{ asset('storage/'.$course->thumbnail) ?? asset('assets/images/gallery/causes-single.jpg') }}" alt="image">
                             </div>
                             <div class="causes-single-content">
                                 <div class="common-title">
-                                    <h3>How to build a secure life of  poor <br> children daily.</h3>
+                                    <h3>{{ $course->title }}</h3>
                                 </div>
                                 <div id="skills-section">
                                     <div class="progress">
-                                        <div class="progress-bar" data-progress="45"></div>
+                                        <div class="progress-bar" data-progress="{{ number_format($course->raised/$course->total*100, 0) }}"></div>
                                     </div>
                                 </div>
                                 <div class="causes-single-raised">
-                                    <h3>$200,000</h3>
-                                    <p><span>of 300,000</span> raised</p>
+                                    <h3>${{ number_format($course->raised) }}</h3>
+                                    <p><span>of ${{ number_format($course->total) }}</span> raised</p>
                                 </div>
-                                <p>Consequat perspiciatis! Condim entum recusandae pretium ultricies, purus! Soluta aliquip, nim tempo class porttitor
-                                    purus justo dicta. Eius nec, felis laudantium quaerat placeat u ultrices rg doloremquem facilisi turpis provident verha
-                                    bitasse orci nullam provident proin morbi incididunt mlin blanditiis sit?</p>
-                                <p>Consequat perspiciatis! Condim entum recusandae pretium ultricies, purus! Soluta aliquip, nim tempo class porttitor
-                                    purus justo dicta. Eius nec, felis laudantium quaerat placeat u ultrices rg doloremquem facilisi turpis provident verha
-                                    bitasse orci nullam provident proin morbi incididunt mlin blanditiis sit?</p>
+
+                                {!! $course->about !!}
 
                                 <div class="causes-details-tab">
                                     <div class="tab-content" id="myTabContent">
@@ -81,7 +76,7 @@
                                 </div>
 
                                 <div class="causes-details-media">
-                                    <a href="contact.html" class="btn-1 btn-2"> Donate Now<span></span></a>
+                                    <a href="{{ $course->donate_link }}" class="btn-1 btn-2"> Donate Now<span></span></a>
                                     <div class="footer3">
                                         <div class="footer_widget">
                                             <div class="widget_media">

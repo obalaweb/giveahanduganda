@@ -223,129 +223,9 @@
                         <div class="col-lg-8">
                             <div class="featured3-inner">
                                 <div class="featured3-slider owl-carousel owl-theme">
-                                    <div class="featured-container">
-                                        <div class="feature-button">
-                                            <a href="#" class="c-btn blue-btn">Medical</a>
-                                        </div>
-                                        <div class="featured-share">
-                                            <a href="#"><i class="fa-solid fa-share"></i></a>
-                                        </div>
-                                        <div class="featured-image">
-                                            <img src="assets/images/gallery/featured-02.png" alt="img">
-                                            <div class="featured-shape">
-                                                <img src="assets/images/shape/featured-shape.png" alt="shape">
-                                            </div>
-                                        </div>
-                                        <div class="featured-content">
-                                            <a href="#">Raise Fund for Clean & Healthy Water for poor.</a>
-                                            <p>There are many variations of passages offerpic Lorem Ipsum available some.</p>
-                                            <div id="skills-section-one">
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar1" data-progress="30">
-                                                        <span>30%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="featured-info">
-                                                <ul>
-                                                    <li>
-                                                        <span>Goals</span>
-                                                        <a href="#">$10,000</a>
-                                                    </li>
-                                                    <li>
-                                                        <span>Raised</span>
-                                                        <a href="#">$8500</a>
-                                                    </li>
-                                                    <li>
-                                                        <span>To Go</span>
-                                                        <a href="#" class="featured-info-go">$6000</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="featured-container">
-                                        <div class="feature-button">
-                                            <a href="#" class="c-btn yellow-btn">Education</a>
-                                        </div>
-                                        <div class="featured-share">
-                                            <a href="#"><i class="fa-solid fa-share"></i></a>
-                                        </div>
-                                        <div class="featured-image">
-                                            <img src="assets/images/gallery/featured-01.png" alt="img">
-                                            <div class="featured-shape">
-                                                <img src="assets/images/shape/featured-shape.png" alt="shape">
-                                            </div>
-                                        </div>
-                                        <div class="featured-content">
-                                            <a href="#">How to build  secure life for the long-poor children.</a>
-                                            <p>There are many variations of passages offerpic Lorem Ipsum available some.</p>
-                                            <div id="skills-section">
-                                                <div class="progress">
-                                                    <div class="progress-bar" data-progress="85">
-                                                        <span>85%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="featured-info">
-                                                <ul>
-                                                    <li>
-                                                        <span>Goals</span>
-                                                        <a href="#">$20,000</a>
-                                                    </li>
-                                                    <li>
-                                                        <span>Raised</span>
-                                                        <a href="#">$7500</a>
-                                                    </li>
-                                                    <li>
-                                                        <span>To Go</span>
-                                                        <a href="#" class="featured-info-go">$8000</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="featured-container">
-                                        <div class="feature-button">
-                                            <a href="#" class="c-btn red-btn">Food</a>
-                                        </div>
-                                        <div class="featured-share">
-                                            <a href="#"><i class="fa-solid fa-share"></i></a>
-                                        </div>
-                                        <div class="featured-image">
-                                            <img src="assets/images/gallery/featured-03.png" alt="img">
-                                            <div class="featured-shape">
-                                                <img src="assets/images/shape/featured-shape.png" alt="shape">
-                                            </div>
-                                        </div>
-                                        <div class="featured-content">
-                                            <a href="#">Because Everyone Deserves for Clean Water.</a>
-                                            <p>There are many variations of passages offerpic Lorem Ipsum available some.</p>
-                                            <div id="skills-section-two">
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar2" data-progress="90">
-                                                        <span>90%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="featured-info">
-                                                <ul>
-                                                    <li>
-                                                        <span>Goals</span>
-                                                        <a href="#">$30,000</a>
-                                                    </li>
-                                                    <li>
-                                                        <span>Raised</span>
-                                                        <a href="#">$6500</a>
-                                                    </li>
-                                                    <li>
-                                                        <span>To Go</span>
-                                                        <a href="#" class="featured-info-go">$4000</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @foreach($courses as $course)
+                                        <x-course :course="$course"/>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -367,48 +247,9 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="team3-content  wow fadeInDown">
-                            <div class="team3-image">
-                                <a href="volunteer-single.html"><img src="assets/images/gallery/team3-01.jpg" alt="image"></a>
-                            </div>
-                            <div class="team3-info">
-                                <h6>Jennifer Loyang</h6>
-                                <p>Junior Volunteer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team3-content  wow fadeInUp">
-                            <div class="team3-image">
-                                <a href="volunteer-single.html"><img src="assets/images/gallery/team3-02.jpg" alt="image"></a>
-                            </div>
-                            <div class="team3-info">
-                                <h6>Ralph Edwards</h6>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team3-content wow fadeInDown">
-                            <div class="team3-image">
-                                <a href="volunteer-single.html"><img src="assets/images/gallery/team3-03.jpg" alt="image"></a>
-                            </div>
-                            <div class="team3-info">
-                                <h6>Kristin Watson</h6>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team3-content wow fadeInUp">
-                            <div class="team3-image">
-                                <a href="volunteer-single.html"><img src="assets/images/gallery/team3-04.jpg" alt="image"></a>
-                            </div>
-                            <div class="team3-info">
-                                <h6>Marvin McKinney</h6>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
+                        @foreach($team as $volunteer)
+                            <x-team :volunteer="$volunteer" />
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -556,54 +397,7 @@
                             <h3>Latest  News and Articles </h3>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-container">
-                            <div class="blog-image">
-                                <a href="blog-single.html"><img src="assets/images/gallery/blog-01.jpg" alt="img"></a>
-                            </div>
-                            <div class="blog-content">
-                                <span><i class="fa-regular fa-calendar-days"></i> 27/02/2022</span>
-                                <a href="blog-single.html" class="blog-title">Providing Education Is the most Valuable Gift</a>
-                            </div>
-                            <div class="blog-image">
-                                <a href="blog-single.html"><img src="assets/images/gallery/blog-02.jpg" alt="img"></a>
-                            </div>
-                            <div class="blog-content">
-                                <span><i class="fa-regular fa-calendar-days"></i> 27/02/2022</span>
-                                <a href="blog-single.html" class="blog-title">Providing Education Is the most Valuable Gift</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-container activ-blog">
-                            <div class="blog-image-middle">
-                                <a href="blog-single.html"><img src="assets/images/gallery/blog-03.jpg" alt="img"></a>
-                            </div>
-                            <div class="blog-content active-blog-content">
-                                <span><i class="fa-regular fa-calendar-days"></i> 27/02/2022</span>
-                                <a href="blog-single.html" class="blog-title">Providing Education Is the most Valuable Gift</a>
-                                <p>Lorem Ipsum nibh vel velit auctor aliqu. Aenean sollic tudin, lorem is that</p>
-                                <a href="blog-single.html" class="read-more">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-content right-blog-content">
-                            <span><i class="fa-regular fa-calendar-days"></i> 27/02/2022</span>
-                            <a href="blog-single.html" class="blog-title">Do you know why african people year of year waterless?</a>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                        <div class="blog-content right-blog-content">
-                            <span><i class="fa-regular fa-calendar-days"></i> 27/02/2022</span>
-                            <a href="blog-single.html" class="blog-title">Do you know why african people year of year waterless?</a>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                        <div class="blog-content right-blog-content">
-                            <span><i class="fa-regular fa-calendar-days"></i> 27/02/2022</span>
-                            <a href="blog-single.html" class="blog-title">Do you know why african people year of year waterless?</a>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
+                    <x-post :posts="$posts" />
                 </div>
             </div>
         </section>

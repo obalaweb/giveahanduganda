@@ -13,6 +13,7 @@ return new class extends Migration {
 			$table->id();
 			$table->string('title');
 			$table->string('thumbnail');
+			$table->string('slug');
 			$table->string('total');
 			$table->string('raised');
 			$table->text('about');

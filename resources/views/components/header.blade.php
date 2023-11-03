@@ -43,35 +43,23 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li class="dropdown"><a href="index-2.html" class="active">Home</a>
+                                    <li>
+                                        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('aboutUs') }}">About Us</a>
+                                    </li>
+                                    <li class="dropdown"><a href="#0">Pages</a>
                                         <ul>
-                                            <li><a href="index-2.html" >Home One</a></li>
-                                            <li><a href="index-3.html">Home Two</a></li>
-                                            <li><a href="index-4.html" class="active">Home Three</a></li>
+                                            <li><a href="{{ route('events.index') }}">Events</a></li>
+                                            <li><a href="{{ route('teams.index') }}">Volunteers</a></li>
+                                            <li><a href="{{ route('teams.create') }}">Become a Volunteer</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="#0">Our Causes</a>
-                                        <ul>
-                                            <li><a href="about-us.html" >About Us</a></li>
-                                            <li><a href="causes-details.html">Causes Single</a></li>
-                                        </ul>
+                                    <li>
+                                        <a href="{{ route('blog.index') }}">Our Blog</a>
                                     </li>
-                                    <li class="dropdown"><a href="#0">Events</a>
-                                        <ul>
-                                            <li><a href="events.html">Events</a></li>
-                                            <li><a href="events-single.html">Events Single</a></li>
-                                            <li><a href="volunteer.html">Volunteer</a></li>
-                                            <li><a href="volunteer-single.html">Volunteer Single</a></li>
-                                            <li><a href="become-a-volunteer.html">Become a Volunteer</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#0">Our Blog</a>
-                                        <ul>
-                                            <li><a href="our-blog.html">Our Blog</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html"> Contact </a></li>
+                                    <li><a href="{{ route('contactUs') }}"> Contact </a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -97,7 +85,7 @@
         <div class="auto_container">
             <div class="outer-box">
                 <div class="logo-box">
-                    <figure class="logo"><a href="index-2.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                    <figure class="logo"><a href="{{ route('home') }}"><img src="assets/images/logo.png" alt=""></a></figure>
                 </div>
                 <div class="menu-area">
                     <nav class="main-menu clearfix">

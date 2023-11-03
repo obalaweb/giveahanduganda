@@ -1,10 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Course;
+use App\Models\Post;
+use App\Models\Team;
 
-use Illuminate\Http\Request;
+class WebController extends Controller {
+	public function index() {
+		$courses = Course::all();
+		$team = Team::all();
+		$posts = Post::all();
+		return view('index', compact('courses', 'team', 'posts'));
+	}
 
-class WebController extends Controller
-{
-    //
+	public function aboutUs() {
+		return view('aboutUs');
+	}
+
+	public function contactUs() {
+		return view('contactUs');
+	}
 }
