@@ -15,12 +15,8 @@ use Filament\Pages\Page;
 use Filament\Support\Exceptions\Halt;
 
 class Setting extends Page implements HasForms {
-	
-    if(Settings::first()) {
-        public ?array $data = Settings::first()->toArray();
-    }else {
-        public ?array $data = [];
-    }
+
+	public ?array $data = [];
 
 	private static ?string $model = Settings::class;
 
@@ -31,13 +27,15 @@ class Setting extends Page implements HasForms {
 	use InteractsWithForms;
 
 	public function mount(): void {
-		$this->form->fill($data);
+		$this->form->fill(Settings::first()->toArray());
 	}
 
 	public function save(): void {
 		try {
 			$data = $this->form->getState();
 
+			$setting = Settings::first();
+			$setting->update($data);
 		} catch (Halt $exception) {
 			return;
 		}
