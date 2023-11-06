@@ -37,12 +37,16 @@
                 <div class="col-lg-6">
                     <div class="become-a-volunteer-right-content">
                         <div class="become-a-volunteer-form">
-                            <input type="text" class="v-form" name="name" placeholder="First Name">
-                            <input type="email" class="v-form" name="email" placeholder="Your Email">
-                            <input type="text" class="v-form" name="address" placeholder="Your Address">
-                            <input type="number" class="v-form" name="number" placeholder="Your Number">
-                            <textarea name="massege" class="v-form" placeholder="Message"></textarea>
-                            <button type="submit" class="submit-btn">Send Message</button>
+                            <form id="volunteerForm">
+                                @csrf
+                                <input type="text" class="v-form" name="name" placeholder="First Name">
+                                <input type="email" class="v-form" name="email" placeholder="Your Email">
+                                <input type="text" class="v-form" name="address" placeholder="Your Address">
+                                <input type="number" class="v-form" name="number" placeholder="Your Number">
+                                <textarea name="massege" class="v-form" placeholder="Message"></textarea>
+                                <button type="submit" class="submit-btn" id="submitBTN">Send Message</button>
+                            </form>
+                            <p class="alert alert-success d-none" id="suMessage"></p>
                         </div>
                     </div>
                 </div>

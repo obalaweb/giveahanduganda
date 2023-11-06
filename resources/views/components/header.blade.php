@@ -6,8 +6,8 @@
                 <div class="header-top-content">
                     <div class="header_top_left">
                         <ul class="top_left">
-                            <li><a href="tel:12123002700"><i class="flaticon-phone-call"></i>+1 212 300 2700</a></li>
-                            <li><a href="mailto:infoyouremail.com"><i class="flaticon-email"></i> Infoyouremail.com</a></li>
+                            <li><a href="tel:12123002700"><i class="flaticon-phone-call"></i>{{ appPhone() }}</a></li>
+                            <li><a href="mailto:infoyouremail.com"><i class="flaticon-email"></i>{{ getEmail() }}</a></li>
                             <li><i class="fa-regular fa-clock"></i> Mon - Fri: 9:00 - 18:00</li>
                         </ul>
                     </div>
@@ -15,10 +15,9 @@
                         <div class="header_right_info">
                             <ul class="top_right">
                                 <li><span>Social Links :</span></li>
-                                <li><a href="#"> <i class="flaticon-facebook-app-symbol"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="flaticon-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                <li><a href="{{ getFlink() }}"> <i class="flaticon-facebook-app-symbol"></i></a></li>
+                                <li><a href="{{ getWLink() }}"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                <li><a href="{{ getTLink() }}"><i class="flaticon-twitter"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +30,7 @@
             <div class="auto-container">
                 <div class="outer-box">
                     <div class="logo-box">
-                        <figure class="logo"><a href="index-2.html"><img src="assets/images/logo-3.png" alt=""></a></figure>
+                        <figure class="logo"><a href="{{ route('home') }}"><img src=" {{ getLogoUrl() ?? asset('assets/images/logo-3.png') }}" alt=""></a></figure>
                     </div>
                     <div class="menu-area">
                         <!--Mobile Navigation Toggler-->
@@ -85,7 +84,7 @@
         <div class="auto_container">
             <div class="outer-box">
                 <div class="logo-box">
-                    <figure class="logo"><a href="{{ route('home') }}"><img src="assets/images/logo.png" alt=""></a></figure>
+                    <figure class="logo"><a href="{{ route('home') }}"><img src="{{ getLogoUrl() ?? asset('assets/images/logo.png') }}" alt=""></a></figure>
                 </div>
                 <div class="menu-area">
                     <nav class="main-menu clearfix">

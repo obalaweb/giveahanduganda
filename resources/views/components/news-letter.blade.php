@@ -1,4 +1,4 @@
-<section class="news_letter news_letter3">
+<section class="news_letter news_letter3 pt-5">
     <div class="container">
         <div class="news_letter_content">
             <div class="row">

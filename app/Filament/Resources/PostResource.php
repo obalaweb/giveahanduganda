@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
@@ -37,6 +38,9 @@ class PostResource extends Resource {
 						TextInput::make('slug')
 							->required(),
 					]),
+				FileUpload::make('thumbnail')
+					->image()
+					->imageEditor(),
 				TextInput::make('body'),
 			]);
 	}

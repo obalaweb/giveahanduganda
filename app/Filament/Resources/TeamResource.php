@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TeamResource\Pages;
 use App\Models\Team;
 use App\Models\User;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -24,8 +26,8 @@ class TeamResource extends Resource {
 					->label('Volunteer')
 					->options(User::all()->pluck('name', 'id'))
 					->searchable(),
-				TextInput::make('profile'),
-				TextInput::make('about'),
+				FileUpload::make('profile'),
+				MarkdownEditor::make('about'),
 				TextInput::make('expertise'),
 				TextInput::make('fb_link'),
 				TextInput::make('twitter_link'),

@@ -8,13 +8,15 @@ use App\Models\Team;
 class WebController extends Controller {
 	public function index() {
 		$courses = Course::all();
-		$team = Team::all();
-		$posts = Post::all();
+		$team = Team::take(3)->get();
+		$posts = Post::take(6)->latest()->get();
+
 		return view('index', compact('courses', 'team', 'posts'));
 	}
 
 	public function aboutUs() {
-		return view('aboutUs');
+		$team = Team::take(3)->get();
+		return view('aboutUs', compact('team'));
 	}
 
 	public function contactUs() {

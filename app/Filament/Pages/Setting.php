@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Models\Settings;
 use Filament\Actions\Action;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
@@ -12,7 +13,6 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Pages\Page;
-use Filament\Support\Exceptions\Halt;
 
 class Setting extends Page implements HasForms {
 
@@ -40,17 +40,23 @@ class Setting extends Page implements HasForms {
 	}
 
 	public function save(): void {
-		try {
-			$data = $this->form->getState();
 
-			dd($data);
+		$data = $this->form->getState();
+
+		try {
 
 			if ($this->settings) {
+
 				$this->settings->update($data);
+
 			} else {
+
 				Settings::create($data);
+
 			}
+
 		} catch (Halt $exception) {
+
 			return;
 		}
 	}
@@ -62,6 +68,14 @@ class Setting extends Page implements HasForms {
 					->schema([
 						TextInput::make('name')
 							->required(),
+
+						FileUpload::make('logo')
+							->imageEditor()
+							->imageEditorAspectRatios([
+								'3.43:1',
+							])
+							->preserveFilenames()
+							->image(),
 
 						TextInput::make('phone')
 							->required(),

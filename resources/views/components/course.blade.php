@@ -1,6 +1,6 @@
 <div class="featured-container">
     <div class="feature-button">
-        <a href="#" class="c-btn blue-btn">Medical</a>
+        <a href="#" class="c-btn blue-btn">Education</a>
     </div>
     <div class="featured-share">
         <a href="#"><i class="fa-solid fa-share"></i></a>

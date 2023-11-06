@@ -12,13 +12,14 @@ return new class extends Migration {
 		Schema::create('settings', function (Blueprint $table) {
 			$table->id();
 			$table->string('name');
+			$table->string('logo');
 			$table->text('about');
 			$table->string('phone');
 			$table->string('email');
 			$table->string('address');
-			$table->string('fb_link');
-			$table->string('twitter_link');
-			$table->string('whatsapp_no');
+			$table->string('fb_link')->nullable();
+			$table->string('twitter_link')->nullable();
+			$table->string('whatsapp_no')->nullable();
 			$table->timestamps();
 		});
 	}

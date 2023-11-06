@@ -1,46 +1,4 @@
 <x-app-layout>
-    <!-- search popup start-->
-    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
-        <div class="offcanvas-header">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i class="flaticon-add"></i></button>
-        </div>
-        <div class="offcanvas-body">
-            <form>
-                <input type="search" placeholder="Search...">
-                <i class="flaticon-search"></i>
-            </form>
-        </div>
-    </div>
-    <!-- search popup end-->
-
-    <!-- Mobile Menu  -->
-    <div class="mobile-menu">
-        <div class="menu-backdrop"></div>
-        <div class="close-btn"><i class="fas fa-times"></i></div>
-        <nav class="menu-box">
-            <div class="nav-logo"><a href="index-2.html"><img src="assets/images/logo-2.png" alt="logo"></a></div>
-            <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-            <div class="contact-info">
-                <h4>Contact Info</h4>
-                <ul>
-                    <li>Chicago 12, Melborne City, USA</li>
-                    <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                    <li><a href="mailto:info@example.com">info@example.com</a></li>
-                </ul>
-            </div>
-            <div class="social-links">
-                <ul class="clearfix">
-                    <li><a href="index-2.html"><span class="fab fa-twitter"></span></a></li>
-                    <li><a href="index-2.html"><span class="fab fa-facebook-square"></span></a></li>
-                    <li><a href="index-2.html"><span class="fab fa-pinterest-p"></span></a></li>
-                    <li><a href="index-2.html"><span class="fab fa-instagram"></span></a></li>
-                    <li><a href="index-2.html"><span class="fab fa-youtube"></span></a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <!-- End Mobile Menu -->
-
     <!-- common banner -->
     <section class="common-banner">
         <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>
@@ -161,7 +119,7 @@
                                         </div>
                                         <div class="mail-info">
                                             <span>Email Now!</span>
-                                            <a href="mailto:infoyourmail@gmail.com">infoyourmail@gmail.com</a>
+                                            <a href="mailto:{{ getEmail() }}">{{ getEmail() }}</a>
                                         </div>
                                     </div>
                                     <a href="about-us.html" class="btn-1 btn-2  wow fadeInUp">Learn More <span></span></a>
@@ -357,63 +315,9 @@
                         <h3>Meet Our Volunteer Team</h3>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="team-content wow fadeInDown">
-                        <div class="team-image">
-                            <a href="volunteer-single.html"><img src="assets/images/team/team-01.png" alt="img"></a>
-                        </div>
-                        <div class="team-info">
-                            <h6>Jennifer Loyang</h6>
-                            <p>Volunteer</p>
-                            <div class="team-media">
-                                <ul>
-                                    <li><a href="#"> <i class="flaticon-facebook-app-symbol"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="flaticon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="team-content wow fadeInUp">
-                        <div class="team-image">
-                            <a href="volunteer-single.html"><img src="assets/images/team/team-02.png" alt="img"></a>
-                        </div>
-                        <div class="team-info">
-                            <h6>Marianne Forney</h6>
-                            <p>Volunteer</p>
-                            <div class="team-media">
-                                <ul>
-                                    <li><a href="#"> <i class="flaticon-facebook-app-symbol"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="flaticon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="team-content wow fadeInDown">
-                        <div class="team-image">
-                            <a href="volunteer-single.html"><img src="assets/images/team/team-03.png" alt="img"></a>
-                        </div>
-                        <div class="team-info">
-                            <h6>Marry Helton</h6>
-                            <p>Volunteer</p>
-                            <div class="team-media">
-                                <ul>
-                                    <li><a href="#"> <i class="flaticon-facebook-app-symbol"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="flaticon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @foreach($team as $volunteer)
+                    <x-team :volunteer="$volunteer" />
+                @endforeach
             </div>
         </div>
     </section>

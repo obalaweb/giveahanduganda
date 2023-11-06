@@ -195,7 +195,7 @@
         <!-- home3 about -->
 
         <!-- featured3 -->
-        <section class="featured3">
+        <!-- <section class="featured3">
             <div class="f-shape">
                 <img src="assets/images/shape/flower-shape.png" alt="shape">
             </div>
@@ -223,8 +223,49 @@
                         <div class="col-lg-8">
                             <div class="featured3-inner">
                                 <div class="featured3-slider owl-carousel owl-theme">
+                                    foreach($courses as $course)
+                                        x-course :course="$course"/>
+                                    endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <!-- featured3 -->
+
+        <!-- featured3 -->
+        <section class="featured3">
+            <div class="f-shape">
+                <img src="assets/images/shape/flower-shape.png" alt="shape">
+            </div>
+            <div class="featured3-container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="featured-left-wrapper">
+                                <div class="common-title">
+                                    <h6>WE LOVE TO HELP POOR</h6>
+                                    <h3>Check Featured Campaigns</h3>
+                                </div>
+                                <div class="featured-left-content">
+                                    <a href="{{ route('course.index') }}" class="btn-1 btn-2">All Caterories <span></span></a>
+                                    <ul>
+                                        <li><a href="#">Education <i class="fa-solid fa-angle-left"></i></a></li>
+                                        <li><a href="#">Medical <i class="fa-solid fa-angle-left"></i></a></li>
+                                        <li><a href="#">Health <i class="fa-solid fa-angle-left"></i></a></li>
+                                        <li><a href="#">Education <i class="fa-solid fa-angle-left"></i></a></li>
+                                        <li><a href="#">Medicine <i class="fa-solid fa-angle-left"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="featured3-inner">
+                                <div class="featured3-slider owl-carousel owl-theme">
                                     @foreach($courses as $course)
-                                        <x-course :course="$course"/>
+                                        <x-course :course="$course" />
                                     @endforeach
                                 </div>
                             </div>
@@ -236,25 +277,23 @@
         </section>
         <!-- featured3 -->
 
-        <!-- team3 -->
-        <section class="team3">
+        <!-- team -->
+        <section class="team">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="align-title">
-                            <h6>EXPERT TEAM</h6>
+                            <h5>EXPERT TEAM</h5>
                             <h3>Meet Our Volunteer Team</h3>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        @foreach($team as $volunteer)
-                            <x-team :volunteer="$volunteer" />
-                        @endforeach
-                    </div>
+                    @foreach($team as $volunteer)
+                        <x-team :volunteer="$volunteer" />
+                    @endforeach
                 </div>
             </div>
         </section>
-        <!-- team3 -->
+        <!-- team -->
 
         <!-- testimonial3 -->
         <section class="testimonial_section_home_three">
@@ -397,10 +436,89 @@
                             <h3>Latest  News and Articles </h3>
                         </div>
                     </div>
-                    <x-post :posts="$posts" />
+                    <x-posts :posts="$posts" />
                 </div>
             </div>
         </section>
         <!-- blog -->
 
+        <!-- instagram -->
+        <div class="inastagram-feed pb-7">
+            <div class="instagram-carousel-container">
+                <div class="instagram-carousel owl-carousel owl-theme">
+                    <div class="instagram-content">
+                        <div class="instagram-image">
+                            <img src="assets/images/gallery/insta-04.jpg" alt="image">
+                        </div>
+                        <div class="instagram-overlay">
+                          <div class="instagram-icon"><a href="assets/images/gallery/insta-02.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="instagram-content">
+                        <div class="instagram-image">
+                            <img src="assets/images/gallery/insta-01.jpg" alt="image">
+                        </div>
+                        <div class="instagram-overlay">
+                          <div class="instagram-icon"><a href="assets/images/gallery/insta-02.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="instagram-content">
+                        <div class="instagram-image">
+                            <img src="assets/images/gallery/insta-02.jpg" alt="image">
+                        </div>
+                        <div class="instagram-overlay">
+                          <div class="instagram-icon"><a href="assets/images/gallery/insta-03.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="instagram-content hide">
+                        <div class="instagram-image">
+                            <img src="assets/images/gallery/insta-03.jpg" alt="image">
+                        </div>
+                        <div class="instagram-overlay">
+                          <div class="instagram-icon"><a href="assets/images/gallery/insta-01.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="instagram-content hide">
+                        <div class="instagram-image">
+                            <img src="assets/images/gallery/insta-05.jpg" alt="image">
+                        </div>
+                        <div class="instagram-overlay">
+                          <div class="instagram-icon"><a href="assets/images/gallery/insta-02.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="instagram-content hide">
+                        <div class="instagram-image">
+                            <img src="assets/images/gallery/insta-03.jpg" alt="image">
+                        </div>
+                        <div class="instagram-overlay">
+                          <div class="instagram-icon"><a href="assets/images/gallery/insta-03.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- instagram -->
+        <!-- brand -->
+        <div class="brand">
+            <div class="brand-carousel-container">
+                <div class="brand-carousel owl-carousel owl-theme">
+                    <div class="brand-image">
+                        <img src="assets/images/brand/brand-01.png" alt="brand">
+                    </div>
+                    <div class="brand-image">
+                        <img src="assets/images/brand/brand-02.png" alt="brand">
+                    </div>
+                    <div class="brand-image">
+                        <img src="assets/images/brand/brand-03.png" alt="brand">
+                    </div>
+                    <div class="brand-image">
+                        <img src="assets/images/brand/brand-04.png" alt="brand">
+                    </div>
+                    <div class="brand-image">
+                        <img src="assets/images/brand/brand-02.png" alt="brand">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brand -->
 </x-app-layout>

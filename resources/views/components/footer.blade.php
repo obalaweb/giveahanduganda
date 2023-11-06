@@ -17,7 +17,7 @@
                             <div class="footer_widget logo_widget">
                                 <div class="footer__logo mb_25">
                                     <figure>
-                                        <img src="assets/images/footer-logo.png" alt="">
+                                        <img src="{{ getLogoUrl() ?? asset('assets/images/footer-logo.png') }}" alt="">
                                     </figure>
                                 </div>
                                 <p>Pricom makes it easy to order super soft, stylish custom printed everything that get your message into the world to very ditermind the time.</p>
@@ -35,11 +35,11 @@
                                     <h4>About Donatee</h4>
                                 </div>
                                 <ul class="links_list">
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="causes-details.html">Start a Return</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="events-single.html">Shipping FAQ</a></li>
-                                    <li><a href="become-a-volunteer.html">Careers</a></li>
+                                    <li><a href="{{ route('aboutUs') }}">About Us</a></li>
+                                    <li><a href="#">Start a Return</a></li>
+                                    <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
+                                    <li><a href="#">Shipping FAQ</a></li>
+                                    <li><a href="#">Careers</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -63,9 +63,9 @@
                                     <h4>Contact Us</h4>
                                 </div>
                                 <ul class="contact_list">
-                                    <li><a href="tel:001406915511"><i class="flaticon-phone-call"></i> <span>0014 069 155 11</span></a></li>
-                                    <li><a href="mailto:helloxyz@yourmail.com"><i class="flaticon-email"></i> <span>helloxyz@yourmail.com</span></a></li>
-                                    <li><a href="contact.html"><i class="flaticon-pin"></i> <span>947 Island of harver apt.154 Rover Island 1597.</span></a></li>
+                                    <li><a href="tel:{{ appPhone() }}"><i class="flaticon-phone-call"></i> <span>{{ appPhone() }}</span></a></li>
+                                    <li><a href="mailto:{{ getEmail() }}"><i class="flaticon-email"></i> <span>{{ getEmail() }}</span></a></li>
+                                    <li><a href="contact.html"><i class="flaticon-pin"></i> <span>{{ getAddress() }}</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                             <div class="copyright-right">
-                                <p> Made with  By <a href="https://codprez.com" target="_blank">Codprez</a></p>
+                                <p> Made with ❤️ By <a href="https://codprez.com" target="_blank">Codprez</a></p>
                             </div>
                         </div>
                     </div>

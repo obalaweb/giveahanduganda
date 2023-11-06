@@ -918,6 +918,40 @@
 		});
 	}
 
+	// Listen for Become a Volunteer form submit
+
+	const form = $("#volunteerForm");
+	form.on('submit', (e) => {
+	    e.preventDefault();
+
+	    var data = $("#volunteerForm").serialize();
+
+	    $.ajax({
+	        data: data,
+	        method: "POST",
+	        url: '/become-a-volunteer',
+	        success: function(response) {
+	        	$("#submitBTN").remove();
+	           	var message = `Hello ${response.name}, your request was successful`;
+	            var $suMessage = $("#suMessage");
+	            form.reset();
+	            $("#suMessage").removeClass("d-none").fadeIn();
+	            $suMessage.html(message).fadeIn();
+
+	            setTimeout(() => {
+	            	$suMessage.fadeOut(() => {
+	            		$("#suMessage").addClass("d-none");
+	            	});
+	            }, 3000);
+	        },
+	        error: function(err) {
+	            console.error(err);
+	            $("#submitBTN").add();
+	        }
+	    });
+	});
+
+
 
 	
 
