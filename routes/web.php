@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::get('/our-volunteers', [TeamController::class, 'index'])->name('teams.ind
 Route::get('/our-volunteers/{volunteer}', [TeamController::class, 'show'])->name('teams.show');
 Route::get('/become-a-volunteer', [TeamController::class, 'create'])->name('teams.create');
 Route::post('/become-a-volunteer', [TeamController::class, 'store'])->name('teams.store');
-Route::view('/blog', 'blog.index')->name('blog.index');
-Route::view('/blog/{post}', 'blog.show')->name('blog.show');
+Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
+Route::get('/blog/{post}', [PostController::class, 'show'])->name('blog.show');
 Route::get('/contact-us', [WebController::class, 'contactUs'])->name('contactUs');
+Route::post('/contact-us', [WebController::class, 'store'])->name('contactUs.store');

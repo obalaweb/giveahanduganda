@@ -315,54 +315,12 @@
                         <div class="testimonial3-right-content">
                             <div class="testimonial-inner">
                                 <div class="testimonial3-slider owl-carousel owl-theme">
-                                    <div class="testimonial3-slider-content">
-                                        <div class="testimonial3-quetion">
-                                            <img src="assets/images/icons/quetion.svg" alt="svg">
-                                        </div>
-                                        <div class="testimonial3-reting">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                            <p>September 19, 2022</p>
-                                        </div>
-                                        <p class="testimonial3-body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don
-                                            don't look even slightly believable what they love.</p>
-                                        <div class="testimonial3-info">
-                                            <img src="assets/images/gallery/testimonial3-01.png" alt="image">
-                                            <div class="testimonial3-member-info">
-                                                <h6>Eleanor Pena</h6>
-                                                <p>Founder</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial3-slider-content">
-                                        <div class="testimonial3-quetion">
-                                            <img src="assets/images/icons/quetion.svg" alt="svg">
-                                        </div>
-                                        <div class="testimonial3-reting">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                            <p>September 19, 2022</p>
-                                        </div>
-                                        <p class="testimonial3-body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don
-                                            don't look even slightly believable what they love.</p>
-                                        <div class="testimonial3-info">
-                                            <img src="assets/images/gallery/testimonial3-02.png" alt="image">
-                                            <div class="testimonial3-member-info">
-                                                <h6>Dianne Russell</h6>
-                                                <p>Admin</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @forelse($testimonials as $testimonial)
+                                        <x-testimonial :testimonial="$testimonial" />
+                                    @empty
+                                        <p>No testimonial per now!</p>
+
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
@@ -446,60 +404,17 @@
         <div class="inastagram-feed pb-7">
             <div class="instagram-carousel-container">
                 <div class="instagram-carousel owl-carousel owl-theme">
-                    <div class="instagram-content">
-                        <div class="instagram-image">
-                            <img src="assets/images/gallery/insta-04.jpg" alt="image">
-                        </div>
-                        <div class="instagram-overlay">
-                          <div class="instagram-icon"><a href="assets/images/gallery/insta-02.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="instagram-content">
-                        <div class="instagram-image">
-                            <img src="assets/images/gallery/insta-01.jpg" alt="image">
-                        </div>
-                        <div class="instagram-overlay">
-                          <div class="instagram-icon"><a href="assets/images/gallery/insta-02.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="instagram-content">
-                        <div class="instagram-image">
-                            <img src="assets/images/gallery/insta-02.jpg" alt="image">
-                        </div>
-                        <div class="instagram-overlay">
-                          <div class="instagram-icon"><a href="assets/images/gallery/insta-03.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="instagram-content hide">
-                        <div class="instagram-image">
-                            <img src="assets/images/gallery/insta-03.jpg" alt="image">
-                        </div>
-                        <div class="instagram-overlay">
-                          <div class="instagram-icon"><a href="assets/images/gallery/insta-01.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="instagram-content hide">
-                        <div class="instagram-image">
-                            <img src="assets/images/gallery/insta-05.jpg" alt="image">
-                        </div>
-                        <div class="instagram-overlay">
-                          <div class="instagram-icon"><a href="assets/images/gallery/insta-02.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="instagram-content hide">
-                        <div class="instagram-image">
-                            <img src="assets/images/gallery/insta-03.jpg" alt="image">
-                        </div>
-                        <div class="instagram-overlay">
-                          <div class="instagram-icon"><a href="assets/images/gallery/insta-03.jpg" class="lightbox-image" data-fancybox="gallery"><i class="fa-brands fa-instagram"></i></a></div>
-                        </div>
-                    </div>
+                    @forelse($galleries as $gallery)
+                        <x-gallery :gallery="$gallery" />
+                    @empty
+                        <p>No Images</p>
+                    @endforelse
                 </div>
             </div>
         </div>
         <!-- instagram -->
         <!-- brand -->
-        <div class="brand">
+        <div class="brand mb-3">
             <div class="brand-carousel-container">
                 <div class="brand-carousel owl-carousel owl-theme">
                     <div class="brand-image">

@@ -9,16 +9,9 @@ return new class extends Migration {
 	 * Run the migrations.
 	 */
 	public function up(): void {
-		Schema::create('courses', function (Blueprint $table) {
+		Schema::create('galleries', function (Blueprint $table) {
 			$table->id();
-			$table->string('title');
-			$table->string('thumbnail');
-			$table->string('slug');
-			$table->string('total');
-			$table->string('raised');
-			$table->text('about');
-			$table->string('donate_link');
-			$table->boolean('status')->default(false);
+			$table->string('url');
 			$table->timestamps();
 		});
 	}
@@ -27,6 +20,6 @@ return new class extends Migration {
 	 * Reverse the migrations.
 	 */
 	public function down(): void {
-		Schema::dropIfExists('courses');
+		Schema::dropIfExists('galleries');
 	}
 };

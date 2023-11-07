@@ -2,21 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\EventResource\Pages;
-use App\Models\Event;
-use Filament\Forms\Components\DatePicker;
+use App\Filament\Resources\TestimonialResource\Pages;
+use App\Models\Testimonial;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\TextArea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class EventResource extends Resource {
-	protected static ?string $model = Event::class;
+class TestimonialResource extends Resource {
+	protected static ?string $model = Testimonial::class;
 
 	protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,20 +21,14 @@ class EventResource extends Resource {
 		return $form
 			->schema([
 				TextInput::make('name'),
-				TextInput::make('category'),
+				TextInput::make('profession'),
 				FileUpload::make('thumbnail'),
-				TextArea::make('venue')
-					->autosize(),
-				DatePicker::make('date')
-					->closeOnDateSelection()
-					->native(false),
-				TimePicker::make('from')
-					->seconds(false)
-					->native(false),
-				TimePicker::make('to')
-					->seconds(false)
-					->native(false),
-				MarkdownEditor::make('about'),
+				TextInput::make('rate')
+					->numeric()
+					->minValue(1)
+					->maxValue(5),
+				TextArea::make('content'),
+
 			]);
 	}
 
@@ -70,9 +61,9 @@ class EventResource extends Resource {
 
 	public static function getPages(): array {
 		return [
-			'index' => Pages\ListEvents::route('/'),
-			'create' => Pages\CreateEvent::route('/create'),
-			'edit' => Pages\EditEvent::route('/{record}/edit'),
+			'index' => Pages\ListTestimonials::route('/'),
+			'create' => Pages\CreateTestimonial::route('/create'),
+			'edit' => Pages\EditTestimonial::route('/{record}/edit'),
 		];
 	}
 }

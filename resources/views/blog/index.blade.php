@@ -17,84 +17,23 @@
         <section class="blog-page">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="blog-page-container">
-                            <div class="blog-page-image">
-                                <img src="assets/images/gallery/bp-1.jpg" alt="image">
-                            </div>
-                            <div class="blog-page-content">
-                                <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
-                                <h6>Providing Education Is the most Valuable Gift</h6>
-                                <p>Lorem Ipsum nibh vel velit auctor aliqu. Aenean sollic tudin, lorem is that.</p>
-                                <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-page-container">
-                            <div class="blog-page-image">
-                                <img src="assets/images/gallery/bp-2.jpg" alt="image">
-                            </div>
-                            <div class="blog-page-content">
-                                <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
-                                <h6>Providing Education Is the most Valuable Gift</h6>
-                                <p>Lorem Ipsum nibh vel velit auctor aliqu. Aenean sollic tudin, lorem is that.</p>
-                                <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
+                    @forelse($posts as $post)
+                        <div class="col-lg-4">
+                            <div class="blog-page-container">
+                                <div class="blog-page-image">
+                                    <img src="{{ $post->thumbnail ?? asset('assets/images/gallery/bp-1.jpg') }}" alt="image">
+                                </div>
+                                <div class="blog-page-content">
+                                    <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
+                                    <h6>{{ $post->title }}</h6>
+                                    <p>{{ $post->getExcerpt() }}</p>
+                                    <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-page-container">
-                            <div class="blog-page-image">
-                                <img src="assets/images/gallery/bp-3.jpg" alt="image">
-                            </div>
-                            <div class="blog-page-content">
-                                <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
-                                <h6>Providing Education Is the most Valuable Gift</h6>
-                                <p>Lorem Ipsum nibh vel velit auctor aliqu. Aenean sollic tudin, lorem is that.</p>
-                                <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-page-container wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
-                            <div class="blog-page-image">
-                                <img src="assets/images/gallery/bp-4.jpg" alt="image">
-                            </div>
-                            <div class="blog-page-content">
-                                <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
-                                <h6>Providing Education Is the most Valuable Gift</h6>
-                                <p>Lorem Ipsum nibh vel velit auctor aliqu. Aenean sollic tudin, lorem is that.</p>
-                                <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-page-container wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-                            <div class="blog-page-image">
-                                <img src="assets/images/gallery/bp-5.jpg" alt="image">
-                            </div>
-                            <div class="blog-page-content">
-                                <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
-                                <h6>Providing Education Is the most Valuable Gift</h6>
-                                <p>Lorem Ipsum nibh vel velit auctor aliqu. Aenean sollic tudin, lorem is that.</p>
-                                <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-page-container wow fadeInUp" data-wow-delay="200ms" data-wow-duration="2000ms">
-                            <div class="blog-page-image">
-                                <img src="assets/images/gallery/bp-6.jpg" alt="image">
-                            </div>
-                            <div class="blog-page-content">
-                                <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
-                                <h6>Providing Education Is the most Valuable Gift</h6>
-                                <p>Lorem Ipsum nibh vel velit auctor aliqu. Aenean sollic tudin, lorem is that.</p>
-                                <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                        @empty
+                            <p>Check back later, no posts available per now!</p>
+                    @endforelse
                     <div class="col-lg-12">
                         <div class="paigenation">
                             <ul>

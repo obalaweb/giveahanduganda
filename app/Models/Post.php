@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 
 class Post extends Model {
 	use HasFactory;
@@ -29,5 +30,13 @@ class Post extends Model {
 
 	public function category(): BelongsTo {
 		return $this->belongsTo(Category::class, 'category_id', 'id');
+	}
+
+	public function getThumbnailAttribute($value) {
+		return asset('storage/' . $value);
+	}
+
+	public function getExcerpt() {
+		return Str::limit($this->body, 100);
 	}
 }

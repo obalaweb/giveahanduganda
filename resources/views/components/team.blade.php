@@ -2,7 +2,7 @@
     <div class="team-content wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
         <div class="team-image">
             <a href="{{ route('teams.show', $volunteer->id) }}">
-                <img src="assets/images/team/team-01.png" alt="img">
+                <img src="{{ $volunteer->profile ?? asset('assets/images/team/team-01.png') }}" alt="img">
             </a>
         </div>
         <div class="team-info">

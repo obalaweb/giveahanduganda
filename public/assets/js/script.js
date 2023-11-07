@@ -946,7 +946,6 @@
 	        },
 	        error: function(err) {
 	            console.error(err);
-	            $("#submitBTN").add();
 	        }
 	    });
 	});

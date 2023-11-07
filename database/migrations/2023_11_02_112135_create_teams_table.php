@@ -16,6 +16,7 @@ return new class extends Migration {
 			$table->text('about');
 			$table->string('profile');
 			$table->string('expertise');
+			$table->boolean('status')->default(false);
 			$table->string('fb_link');
 			$table->string('twitter_link');
 			$table->string('whatsapp_no');

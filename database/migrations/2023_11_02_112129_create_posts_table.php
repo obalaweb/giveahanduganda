@@ -15,6 +15,7 @@ return new class extends Migration {
 			$table->id();
 			$table->string('title');
 			$table->string('slug');
+			$table->boolean('isPublished')->default(false);
 			$table->string('thumbnail');
 			$table->string('tags');
 			$table->foreignIdFor(User::class)->constrained('users');

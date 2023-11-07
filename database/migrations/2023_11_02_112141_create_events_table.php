@@ -15,7 +15,9 @@ return new class extends Migration {
 			$table->string('thumbnail');
 			$table->string('category');
 			$table->string('venue');
-			$table->dateTime('date');
+			$table->date('date');
+			$table->time('from');
+			$table->time('to');
 			$table->text('about');
 			$table->timestamps();
 		});

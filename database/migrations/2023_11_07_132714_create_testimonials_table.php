@@ -9,15 +9,13 @@ return new class extends Migration {
 	 * Run the migrations.
 	 */
 	public function up(): void {
-		Schema::create('courses', function (Blueprint $table) {
+		Schema::create('testimonials', function (Blueprint $table) {
 			$table->id();
-			$table->string('title');
+			$table->string('name');
 			$table->string('thumbnail');
-			$table->string('slug');
-			$table->string('total');
-			$table->string('raised');
-			$table->text('about');
-			$table->string('donate_link');
+			$table->string('profession');
+			$table->integer('rate');
+			$table->text('content');
 			$table->boolean('status')->default(false);
 			$table->timestamps();
 		});
@@ -27,6 +25,6 @@ return new class extends Migration {
 	 * Reverse the migrations.
 	 */
 	public function down(): void {
-		Schema::dropIfExists('courses');
+		Schema::dropIfExists('testimonials');
 	}
 };
