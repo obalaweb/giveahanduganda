@@ -12,6 +12,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class TeamResource extends Resource {
@@ -38,7 +40,9 @@ class TeamResource extends Resource {
 	public static function table(Table $table): Table {
 		return $table
 			->columns([
-				//
+				TextColumn::make('user.name'),
+				TextColumn::make('expertise'),
+				ImageColumn::make('profile'),
 			])
 			->filters([
 				//

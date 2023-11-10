@@ -7,9 +7,13 @@ use App\Models\Testimonial;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextArea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class TestimonialResource extends Resource {
@@ -22,7 +26,11 @@ class TestimonialResource extends Resource {
 			->schema([
 				TextInput::make('name'),
 				TextInput::make('profession'),
-				FileUpload::make('thumbnail'),
+				Toggle::make('status')
+					->onColor('success')
+					->offColor('danger'),
+				FileUpload::make('thumbnail')
+					->image(),
 				TextInput::make('rate')
 					->numeric()
 					->minValue(1)
@@ -35,7 +43,21 @@ class TestimonialResource extends Resource {
 	public static function table(Table $table): Table {
 		return $table
 			->columns([
-				//
+				ImageColumn::make('thumbnail')
+					->circular(),
+				TextColumn::make('name'),
+				TextColumn::make('profession'),
+				IconColumn::make('rate')
+					->icon(function (int $state) {
+						while ($state > 0) {
+							echo "⭐";
+							$state--;
+						}
+					}),
+				IconColumn::make('status')
+					->boolean()
+					->trueColor('success')
+					->falseColor('warning'),
 			])
 			->filters([
 				//

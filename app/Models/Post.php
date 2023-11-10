@@ -10,6 +10,14 @@ use Illuminate\Support\Str;
 class Post extends Model {
 	use HasFactory;
 
+	const DRAFT = 0;
+	const PUBLISHED = 1;
+
+	const STATUS = [
+		self::DRAFT => "draft",
+		self::PUBLISHED => "published",
+	];
+
 	protected $fillable = [
 		'title',
 		'slug',
@@ -18,6 +26,7 @@ class Post extends Model {
 		'user_id',
 		'category_id',
 		'thumbnail',
+		'isPublished',
 	];
 
 	protected $casts = [
@@ -38,5 +47,9 @@ class Post extends Model {
 
 	public function getExcerpt() {
 		return Str::limit($this->body, 100);
+	}
+
+	public function isPublished(): bool {
+		return $this->isPublished === self::PUBLISHED;
 	}
 }

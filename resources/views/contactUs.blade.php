@@ -5,7 +5,7 @@
 
         <div class="common-banner-title blog-single-banner-title">
             <h3>Contact Us</h3>
-            <a href="index-2.html">Home </a> <span>/</span>
+            <a href="{{ route('home') }}">Home </a> <span>/</span>
             <a href="#0">Contact</a>
         </div>
     </section>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="contact-address">
                                     <h6>Address</h6>
-                                    <p>629 12th St, Modesto, CA 95354 United States</p>
+                                    <p>{{ getAddress() }}</p>
                                 </div>
                             </div>
 
@@ -50,8 +50,8 @@
                                 </div>
                                 <div class="contact-address">
                                     <h6>Email Us</h6>
-                                    <a href="mailto:Donatee@gmail.com">Donatee@gmail.com</a>
-                                    <a href="mailto:Email@gmail.com">Email@gmail.com</a>
+                                    <a href="mailto:{{ getEmail() }}">{{ getEmail() }}</a>
+                                    <a href="mailto:info@codprez.com">info@codprez.com</a>
                                 </div>
                             </div>
 
@@ -61,8 +61,8 @@
                                 </div>
                                 <div class="contact-address">
                                     <h6>Call Now</h6>
-                                    <a href="tel:1800123456789">+1 800 123 456 789</a>
-                                    <a href="tel:1800123789456">+1 800 123 789 456</a>
+                                    <a href="tel:1800123456789">{{ appPhone() }}</a>
+                                    <a href="tel:1800123789456">+256 77203 2435</a>
                                 </div>
                             </div>
                         </div>

@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? '' .' - '. env('APP_NAME') }}</title>
-
     <!-- Fav Icon -->
     <link rel="icon" href="{{ asset('assets/images/fav-icon.png') }}" type="image/x-icon">
 

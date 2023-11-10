@@ -2,42 +2,48 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Models\User;
+use App\Filament\Resources\HomePageSliderResource\Pages;
+use App\Models\HomePageSlider;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextArea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class UserResource extends Resource {
-	protected static ?string $model = User::class;
-
+class HomePageSliderResource extends Resource {
+	protected static ?string $model = HomePageSlider::class;
+	protected static ?string $navigationGroup = 'Settings';
+	protected static ?string $navigationLabel = 'Sliders';
 	protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
 	public static function form(Form $form): Form {
 		return $form
 			->schema([
-				TextInput::make('name'),
-				TextInput::make('email')
-					->email(),
-				TextInput::make('password')
-					->password(),
+				TextInput::make('title'),
+				TextInput::make('slogan'),
+				TextArea::make('description'),
+				FileUpload::make('image'),
 			]);
 	}
 
 	public static function table(Table $table): Table {
 		return $table
 			->columns([
-				TextColumn::make('name'),
-				TextColumn::make('email'),
+				TextColumn::make('title'),
+				TextColumn::make('slogan'),
+				ImageColumn::make('image')
+					->circular(),
 			])
 			->filters([
 				//
 			])
 			->actions([
 				Tables\Actions\EditAction::make(),
+				Tables\Actions\DeleteAction::make(),
 			])
 			->bulkActions([
 				Tables\Actions\BulkActionGroup::make([
@@ -49,17 +55,9 @@ class UserResource extends Resource {
 			]);
 	}
 
-	public static function getRelations(): array {
-		return [
-			//
-		];
-	}
-
 	public static function getPages(): array {
 		return [
-			'index' => Pages\ListUsers::route('/'),
-			'create' => Pages\CreateUser::route('/create'),
-			'edit' => Pages\EditUser::route('/{record}/edit'),
+			'index' => Pages\ManageHomePageSliders::route('/'),
 		];
 	}
 }

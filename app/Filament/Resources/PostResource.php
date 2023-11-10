@@ -12,6 +12,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
@@ -48,7 +49,19 @@ class PostResource extends Resource {
 	public static function table(Table $table): Table {
 		return $table
 			->columns([
-				//
+				TextColumn::make('title'),
+				TextColumn::make('tags')
+					->badge()
+					->separator(','),
+				TextColumn::make('isPublished')
+					->label('Status')
+					->color('primary'),
+				// TextColumn::make('isPublished')
+				// 	->badge()
+				// 	->color(fn(int $state): string => match ($state) {
+				// 		Post::DRAFT => 'Draft',
+				// 		Post::PUBLISHED => 'Published',
+				// 	}),
 			])
 			->filters([
 				//

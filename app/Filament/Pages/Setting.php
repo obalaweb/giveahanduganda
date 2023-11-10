@@ -20,7 +20,7 @@ class Setting extends Page implements HasForms {
 	public $settings;
 
 	private static ?string $model = Settings::class;
-
+	protected static ?string $navigationGroup = 'Settings';
 	protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
 	protected static string $view = 'filament.pages.setting';

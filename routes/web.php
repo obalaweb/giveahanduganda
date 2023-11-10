@@ -29,6 +29,6 @@ Route::get('/our-volunteers/{volunteer}', [TeamController::class, 'show'])->name
 Route::get('/become-a-volunteer', [TeamController::class, 'create'])->name('teams.create');
 Route::post('/become-a-volunteer', [TeamController::class, 'store'])->name('teams.store');
 Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
-Route::get('/blog/{post}', [PostController::class, 'show'])->name('blog.show');
+Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('blog.show');
 Route::get('/contact-us', [WebController::class, 'contactUs'])->name('contactUs');
 Route::post('/contact-us', [WebController::class, 'store'])->name('contactUs.store');

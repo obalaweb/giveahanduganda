@@ -10,6 +10,10 @@ function getLogoUrl() {
 	}
 }
 
+function getName() {
+	return Settings::pluck('name')->first();
+}
+
 function logoUrl() {
 	return Settings::pluck('logo')->first();
 }

@@ -27,7 +27,7 @@
                                     <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
                                     <h6>{{ $post->title }}</h6>
                                     <p>{{ $post->getExcerpt() }}</p>
-                                    <a href="blog-single.html">READ MORE <i class="fa-solid fa-angle-right"></i></a>
+                                    <a href="{{ route('blog.show', $post->slug) }}">READ MORE <i class="fa-solid fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>

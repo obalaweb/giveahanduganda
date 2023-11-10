@@ -4,8 +4,8 @@
         <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>
 
         <div class="common-banner-title">
-            <h3>We are Donatee</h3>
-            <p>There are many variations of passages of Lorem Ipsum available but majority have <br> suffered alteration in some form</p>
+            <h3>{{ $pageSetting->common_title }}</h3>
+            <p>{{ $pageSetting->common_description }}</p>
         </div>
     </section>
     <!-- common banner -->
@@ -16,15 +16,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="align-title">
-                        <h3>See what we do for the poor people <br> and the children</h3>
+                        <h3>{{ $pageSetting->cta_title }}</h3>
                     </div>
                     <div class="about-video-wrapper">
                         <div class="about-video-content">
                             <div class="about-video-image">
-                                <img src="assets/images/background/video-bg.jpg" alt="image">
+                                <img src="{{ asset($pageSetting->cta_image) }}" alt="image">
                             </div>
                             <div class="missiom-video-btn">
-                                <a href="https://www.youtube.com/watch?v=kS0X-yIsB64" target="_blank" class="hv-popup-link"><i class="fas fa-play"></i></a>
+                                <a href="{{ $pageSetting->cta_video }}" target="_blank" class="hv-popup-link"><i class="fas fa-play"></i></a>
                             </div>
                         </div>
                     </div>
@@ -99,17 +99,13 @@
                     <div class="about2-left-container">
                         <div class="common-title">
                             <h6>ABOUT US</h6>
-                            <h3>If we Helping Each other then the world growing.</h3>
+                            <h3>{{ $pageSetting->title }}</h3>
                         </div>
                         <div class="about-right-content about2-left-content">
-                            <h6>Everything melancholy uncommonly but solicitude inhabiting projection off Connec stimulated estimating excellence an to impression. ladies she basket season ageaui
-                                uneasy saw. Discourse unwilling am no described.</h6>
-                            <p>Frequently partiality possession resolution at or appearance unaffected he me Enga
-                                ged its was evident pleased husband. Ye goodness felicity do disposal dwelling nodi
-                                First am plate jokes of the year of heaven time.</p>
+                            {!! $pageSetting->description !!}
                             <div class="about-left-wrapper">
                                 <div class="about-left-wrapper-content">
-                                    <h5>We’re Satisfied more than 30k Donars.</h5>
+                                    <h5>{{ $pageSetting->achivement }}</h5>
                                     <img src="assets/images/shape/features-shape.png" alt="shape">
                                 </div>
                                 <div class="about-right-button-area">
@@ -131,7 +127,7 @@
                 <div class="col-lg-5">
                     <div class="about2-right-container">
                         <div class="about2-image wow fadeInUp">
-                            <img src="assets/images/gallery/about-02.png" alt="image">
+                            <img src="{{ asset($pageSetting->image) }}" alt="image">
                         </div>
                         <div class="round2-shape">
                             <img src="assets/images/shape/round-shape.png" alt="shape">
@@ -179,48 +175,27 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="video2-title">
-                        <h3>Help them whenever they <br> are in need</h3>
-                        <a href="https://www.youtube.com/watch?v=kS0X-yIsB64" target="_blank" class="hv-popup-link"><i class="fas fa-play"></i></a>
+                        <h3>{{ $pageSetting->action_title }}</h3>
+                        <a href="{{ $pageSetting->action_video }}" target="_blank" class="hv-popup-link">
+                            <i class="fas fa-play"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="video2-container">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="video2-contant wow fadeInDown">
-                                <div class="video2-contant-icon">
-                                    <img src="assets/images/icons/video2-icon1.png" alt="icon">
-                                </div>
-                                <div class="video2-icon-content">
-                                    <a href="become-a-volunteer.html">Become A Volunteer</a>
-                                    <p>There are many variations offertei passages of Lorem Ipsum but time
-                                    the majority have</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="video2-contant wow fadeInUp">
-                                <div class="video2-contant-icon">
-                                    <img src="assets/images/icons/video2-icon2.png" alt="icon">
-                                </div>
-                                <div class="video2-icon-content">
-                                    <a href="contact.html">Quick Founding</a>
-                                    <p>There are many variations offertei passages of Lorem Ipsum but time
-                                    the majority have</p>
+                        @foreach($pageSetting->action_items as $item)
+                            <div class="col-lg-4">
+                                <div class="video2-contant wow fadeInDown">
+                                    <div class="video2-contant-icon">
+                                        <img src="{{ asset($item['icon']) }}" alt="icon">
+                                    </div>
+                                    <div class="video2-icon-content">
+                                        <a href="{{ $item['link'] }}">{{ $item['title'] }}</a>
+                                        <p>{{ $item['description'] }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="video2-contant wow fadeInDown">
-                                <div class="video2-contant-icon">
-                                    <img src="assets/images/icons/video2-icon3.png" alt="icon">
-                                </div>
-                                <div class="video2-icon-content">
-                                    <a href="contact.html">Start Donation</a>
-                                    <p>There are many variations offertei passages of Lorem Ipsum but time
-                                    the majority have</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

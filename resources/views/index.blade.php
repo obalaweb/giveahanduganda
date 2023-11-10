@@ -5,66 +5,25 @@
                 <div class="outer-box">
                     <div class="col-lg-6">
                         <div class="banner-carousel owl-theme owl-carousel">
-                            <div class="slide-item">
-                                <div class="banner-slide">
-                                    <div class="banner-content">
-                                        <div class="banner-content-wrapper">
-                                            <div class="banner-content-wrapper-inner">
-                                                <h6>Help The Poor Children</h6>
-                                                <h2>Your  Donation Help <br>
-                                                    To Change Some <br>
-                                                    one’s Life.
-                                                </h2>
-                                                <p>There are many variations of passages of Lorem Ipsum available but <br> the majority have suffered alteration in some. </p>
-                                                <div class="banner-btn-group">
-                                                    <div class="header-link-btn"><a href="become-a-volunteer.html" target="_blank" class="btn-1"> Volunteer<span></span></a></div>
-                                                    <div class="header-link-btn"><a href="contact.html" target="_blank" class="btn-1 btn-3"> Contribute <i class="fa-solid fa-arrow-right-long"></i><span></span></a></div>
+                            @foreach($slides as $slide)
+                                <div class="slide-item">
+                                    <div class="banner-slide">
+                                        <div class="banner-content">
+                                            <div class="banner-content-wrapper">
+                                                <div class="banner-content-wrapper-inner">
+                                                    <h6>{{ $slide->slogan}}</h6>
+                                                    <h2>{{ $slide->title }}</h2>
+                                                    <p>{{ $slide->description}}</p>
+                                                    <div class="banner-btn-group">
+                                                        <div class="header-link-btn"><a href="become-a-volunteer.html" target="_blank" class="btn-1"> Volunteer<span></span></a></div>
+                                                        <div class="header-link-btn"><a href="contact.html" target="_blank" class="btn-1 btn-3"> Contribute <i class="fa-solid fa-arrow-right-long"></i><span></span></a></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="banner-slide">
-                                    <div class="banner-content">
-                                        <div class="banner-content-wrapper">
-                                            <div class="banner-content-wrapper-inner">
-                                                <h6>Help The Poor Children</h6>
-                                                <h2>Your  Donation Help <br>
-                                                    To Change Some <br>
-                                                    one’s Life.
-                                                </h2>
-                                                <p>There are many variations of passages of Lorem Ipsum available but <br> the majority have suffered alteration in some. </p>
-                                                <div class="banner-btn-group">
-                                                    <div class="header-link-btn"><a href="become-a-volunteer.html" target="_blank" class="btn-1"> Volunteer<span></span></a></div>
-                                                    <div class="header-link-btn"><a href="contact.html" target="_blank" class="btn-1 btn-3"> Contribute <i class="fa-solid fa-arrow-right-long"></i><span></span></a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="banner-slide">
-                                    <div class="banner-content">
-                                        <div class="banner-content-wrapper">
-                                            <div class="banner-content-wrapper-inner">
-                                                <h6>Help The Poor Children</h6>
-                                                <h2>Your  Donation Help <br>
-                                                    To Change Some <br>
-                                                    one’s Life.
-                                                </h2>
-                                                <p>There are many variations of passages of Lorem Ipsum available but <br> the majority have suffered alteration in some. </p>
-                                                <div class="banner-btn-group">
-                                                    <div class="header-link-btn"><a href="become-a-volunteer.html" target="_blank" class="btn-1"> Volunteer<span></span></a></div>
-                                                    <div class="header-link-btn"><a href="contact.html" target="_blank" class="btn-1 btn-3"> Contribute <i class="fa-solid fa-arrow-right-long"></i><span></span></a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -89,49 +48,47 @@
                     <div class="col-lg-6">
                         <div class="common-title">
                             <h6>WHAT WE DO</h6>
-                            <h3>Providing solutions For future Donations,
-                                Management, & Change.</h3>
+                            <h3>{{ $pageSetting->what_we_do_title }}</h3>
                         </div>
                         <div class="home3-features-left-content">
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                have tigerpa suffered alteration in some form, by injected humour, or randomise
-                                all kinds of projects, big and small, from home.</p>
-                            <a href="our-blog.html" class="btn-1 btn-2">View More <span></span></a>
+                            <p>{{ $pageSetting->what_we_do_description }}</p>
+                            <a href="{{ route('blog.index') }}" class="btn-1 btn-2">View More <span></span></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="home3-container">
                             <div class="home3-content home3-content1">
-                                <div class="home3-wrapper  wow fadeInDown">
-                                    <div class="features3-icon">
-                                        <i class="icon-i-01"></i>
-                                    </div>
-                                    <h6>Education</h6>
-                                    <p>There are many variations of passages of Lorem Ipsum available</p>
-                                </div>
-                                <div class="home3-wrapper  wow fadeInUp">
+                                @foreach($pageSetting->items as $item)
+                                    @if($loop->iteration < 3)
+                                        <div class="home3-wrapper  wow {{ $loop->iteration === 1 ? 'fadeInDown' : 'fadeInUp'}}">
+                                            <div class="features3-icon">
+                                                <i class="{{ $item['icon'] }}"></i>
+                                            </div>
+                                            <h6>{{ $item['name'] }}</h6>
+                                            <p>{{ $item['description'] }}</p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                <!-- <div class="home3-wrapper  wow fadeInUp">
                                     <div class="features3-icon">
                                         <i class="icon-i-03"></i>
                                     </div>
                                     <h6>Medical Help</h6>
                                     <p>There are many variations of passages of Lorem Ipsum available</p>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="home3-content home3-content2 ">
-                                <div class="home3-wrapper wow fadeInDown">
-                                    <div class="features3-icon">
-                                        <i class="icon-i-02"></i>
-                                    </div>
-                                    <h6>Healthy Food</h6>
-                                    <p>There are many variations of passages of Lorem Ipsum available</p>
-                                </div>
-                                <div class="home3-wrapper wow fadeInUp">
-                                    <div class="features3-icon">
-                                        <i class="icon-i-04"></i>
-                                    </div>
-                                    <h6>Safe Water</h6>
-                                    <p>There are many variations of passages of Lorem Ipsum available</p>
-                                </div>
+                                @foreach($pageSetting->items as $item)
+                                    @if($loop->iteration >= 3 && $loop->iteration < 5)
+                                        <div class="home3-wrapper wow {{ $loop->iteration === 3 ? 'fadeInDown' : 'fadeInUp'}}">
+                                            <div class="features3-icon">
+                                                <i class="{{ $item['icon'] }}"></i>
+                                            </div>
+                                            <h6>{{ $item['name'] }}</h6>
+                                            <p>{{ $item['description'] }}</p>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -158,13 +115,10 @@
                         <div class="home3-about-right-content">
                             <div class="common-title">
                                 <h6>ABOUT US</h6>
-                                <h3>If we Helping Each other <br> then the world growing.</h3>
+                                <h3>{{ $pageSetting->about_us_title }}</h3>
                             </div>
                             <div class="home3-about-right-wrapper">
-                                <p><strong>There are many variations of passages of Lorem Ipsum available, but the majority have tige
-                                    rpa suffered alteration in some form, by injected humour, or randomised words which don kyapiti look even slightly believable time of vaule less time.</strong></p>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have tigerpa
-                                    suffered alteration in some form, by injected humour, or randomised words</p>
+                                {!! $pageSetting->about_us_description !!}
                                 <ul>
                                     <li>
                                         <div class="home3-about-icon">
@@ -193,48 +147,6 @@
             </div>
         </section>
         <!-- home3 about -->
-
-        <!-- featured3 -->
-        <!-- <section class="featured3">
-            <div class="f-shape">
-                <img src="assets/images/shape/flower-shape.png" alt="shape">
-            </div>
-            <div class="featured3-container">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="featured-left-wrapper">
-                                <div class="common-title">
-                                    <h6>WE LOVE TO HELP POOR</h6>
-                                    <h3>Check Featured Campaigns</h3>
-                                </div>
-                                <div class="featured-left-content">
-                                    <a href="events.html" class="btn-1 btn-2">All Caterories <span></span></a>
-                                    <ul>
-                                        <li><a href="events-single.html">Education <i class="fa-solid fa-angle-left"></i></a></li>
-                                        <li><a href="events-single.html">Medical <i class="fa-solid fa-angle-left"></i></a></li>
-                                        <li><a href="events-single.html">Health <i class="fa-solid fa-angle-left"></i></a></li>
-                                        <li><a href="events-single.html">Education <i class="fa-solid fa-angle-left"></i></a></li>
-                                        <li><a href="events-single.html">Medicine <i class="fa-solid fa-angle-left"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="featured3-inner">
-                                <div class="featured3-slider owl-carousel owl-theme">
-                                    foreach($courses as $course)
-                                        x-course :course="$course"/>
-                                    endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- featured3 -->
-
         <!-- featured3 -->
         <section class="featured3">
             <div class="f-shape">
@@ -337,17 +249,16 @@
                     <div class="col-lg-12">
                         <div class="common-title">
                             <h6>BECOME A VOLUNTEER</h6>
-                            <h3>We can help poor people <br> for development.</h3>
+                            <h3>{{ $pageSetting->become_a_volunteer_title }}</h3>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-image">
-                            <div class="volunteer-image1">
-                                <img src="assets/images/gallery/volunteer-01.jpg" alt="image">
-                            </div>
-                            <div class="volunteer-image2  wow fadeInUp">
-                                <img src="assets/images/gallery/volunteer-05.jpg" alt="image">
-                            </div>
+                            @foreach($pageSetting->become_a_volunteer_images as $image)
+                                <div class="{{ $loop->iteration === 1 ? 'volunteer-image1' : 'volunteer-image2  wow fadeInUp'}}">
+                                    <img src="{{ asset($image) }}" alt="image">
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-6">
