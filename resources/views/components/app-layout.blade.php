@@ -19,6 +19,7 @@
     <link href="{{ asset('assets/css/font-awesome-all.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/flaticon_save_us.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/owl.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/jquery-ui.theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/jquery-ui.structure.min.css') }}" rel="stylesheet">
@@ -122,6 +123,7 @@
     <script src="{{ asset('assets/js/jquery.magnific-popup.js') }}"></script>
     <script src="{{ asset('assets/js/parallax-scroll.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.paroller.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heroicons-css@0.1.1/heroicons.min.js" type="text/javascript"></script>
 
     <!-- main-js -->
     <script src="{{ asset('assets/js/script.js') }}"></script>

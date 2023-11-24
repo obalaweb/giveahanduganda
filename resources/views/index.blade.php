@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="$title">
     <!-- banner section starts -->
         <section class="banner home-2-banner home-3-banner">
             <div class="auto-container">
@@ -15,8 +15,16 @@
                                                     <h2>{{ $slide->title }}</h2>
                                                     <p>{{ $slide->description}}</p>
                                                     <div class="banner-btn-group">
-                                                        <div class="header-link-btn"><a href="become-a-volunteer.html" target="_blank" class="btn-1"> Volunteer<span></span></a></div>
-                                                        <div class="header-link-btn"><a href="contact.html" target="_blank" class="btn-1 btn-3"> Contribute <i class="fa-solid fa-arrow-right-long"></i><span></span></a></div>
+                                                        <div class="header-link-btn">
+                                                            <a href="{{ route('teams.create') }}" target="_blank" class="btn-1"> Volunteer<span></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="header-link-btn">
+                                                            <a href="{{route('contactUs')}}" target="_blank" class="btn-1 btn-3">
+                                                             Contribute
+                                                             <i class="fa-solid fa-arrow-right-long"></i><span></span>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -29,7 +37,7 @@
                     <div class="col-lg-6">
                         <div class="banner-right">
                             <div class="banner-right-image">
-                                <img src="assets/images/banner/home3-banner-image.png" alt="img">
+                                <img src="{{ asset('storage/'. $pageSetting->main_image ) }}" alt="img">
                             </div>
                         </div>
                     </div>
@@ -104,7 +112,7 @@
                     <div class="col-lg-5">
                         <div class="home3-about-left-content">
                             <div class="home3-about-image">
-                                <img src="assets/images/gallery/home3-about.jpg" alt="image">
+                                <img src="{{ asset('storage/' . $pageSetting->about_us_image) }}" alt="image">
                             </div>
                             <div class="about3-round-shape">
                                 <img src="assets/images/shape/round-shape.png" alt="shape">
@@ -120,26 +128,22 @@
                             <div class="home3-about-right-wrapper">
                                 {!! $pageSetting->about_us_description !!}
                                 <ul>
-                                    <li>
-                                        <div class="home3-about-icon">
-                                            <i class="fa-solid fa-check"></i>
-                                        </div>
-                                        <div class="home3-about-info">
-                                            <h6>89% Program Done</h6>
-                                            <p>Lorem ipsum velit anod ips aliquet enean quis. </p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="home3-about-icon">
-                                            <i class="fa-solid fa-check"></i>
-                                        </div>
-                                        <div class="home3-about-info">
-                                            <h6>90% Save Children</h6>
-                                            <p>Lorem ipsum velit anod ips aliquet enean quis. </p>
-                                        </div>
-                                    </li>
+                                     @php
+                                            $milestone = json_decode($pageSetting->milestone);
+                                        @endphp
+                                        @foreach($milestone as $stone)
+                                            <li>
+                                                <div class="home3-about-icon">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
+                                                <div class="home3-about-info">
+                                                    <h6>{{ $stone->title }}</h6>
+                                                    <p>{{ $stone->description }}</p>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                 </ul>
-                                <a href="about-us.html" class="btn-1 btn-2"> Learn More <span></span></a>
+                                <a href="{{ route('aboutUs') }}" class="btn-1 btn-2"> Learn More <span></span></a>
                             </div>
                         </div>
                     </div>
@@ -218,7 +222,7 @@
                                 <h3>See Discussion <br> About Client's Talk</h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have tigerpa suffered alteration in some form, by injected humour, or randomise all kinds of projects, big and small.</p>
                                 <div class="link-btn">
-                                    <a href="become-a-volunteer.html" class="btn-1 btn-2">View More <span></span></a>
+                                    <a href="{{ route('teams.create') }}" class="btn-1 btn-2">View More <span></span></a>
                                 </div>
                             </div>
                         </div>
@@ -256,7 +260,7 @@
                         <div class="volunteer-image">
                             @foreach($pageSetting->become_a_volunteer_images as $image)
                                 <div class="{{ $loop->iteration === 1 ? 'volunteer-image1' : 'volunteer-image2  wow fadeInUp'}}">
-                                    <img src="{{ asset($image) }}" alt="image">
+                                    <img src="{{ asset('storage/'. $image) }}" alt="image">
                                 </div>
                             @endforeach
                         </div>
@@ -283,7 +287,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="volunteer-button">
-                                            <a href="become-a-volunteer.html" class="btn-1">Become A Volunteer <span></span></a>
+                                            <a href="{{ route('teams.create') }}" class="btn-1">Become A Volunteer <span></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -328,21 +332,11 @@
         <div class="brand mb-3">
             <div class="brand-carousel-container">
                 <div class="brand-carousel owl-carousel owl-theme">
-                    <div class="brand-image">
-                        <img src="assets/images/brand/brand-01.png" alt="brand">
-                    </div>
-                    <div class="brand-image">
-                        <img src="assets/images/brand/brand-02.png" alt="brand">
-                    </div>
-                    <div class="brand-image">
-                        <img src="assets/images/brand/brand-03.png" alt="brand">
-                    </div>
-                    <div class="brand-image">
-                        <img src="assets/images/brand/brand-04.png" alt="brand">
-                    </div>
-                    <div class="brand-image">
-                        <img src="assets/images/brand/brand-02.png" alt="brand">
-                    </div>
+                    @foreach($brands as $brand)
+                        <div class="brand-image">
+                            <img src="{{ asset('storage/'.$brand->img_url) }}" alt="brand">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

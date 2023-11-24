@@ -11,15 +11,16 @@ return new class extends Migration {
 	public function up(): void {
 		Schema::create('home_pages', function (Blueprint $table) {
 			$table->id();
+			$table->string('main_image');
 			$table->string('what_we_do_title');
 			$table->text('what_we_do_description');
 			$table->json('items');
-
 			$table->string('about_us_title');
 			$table->text('about_us_description');
 			$table->string('about_us_image')->nullable();
 			$table->string('become_a_volunteer_title');
-			$table->string('become_a_volunteer_images');
+			$table->json('become_a_volunteer_images');
+			$table->json('milestone');
 			$table->timestamps();
 		});
 	}

@@ -80,7 +80,7 @@
                         <div class="copyright-container">
                             <div class="copyright-left">
                                 <div class="copyright-reserved">
-                                    <p>Copyright - All Rights Reserved.</p>
+                                    <p>Copyright {{ date('Y') }} - All Rights Reserved.</p>
                                 </div>
                                 <div class="copyright-terms">
                                     <a href="#0">Terms </a>

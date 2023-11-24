@@ -14,7 +14,6 @@ class HomePageSliderSeeder extends Seeder {
 			'title' => 'Your donation helps change lives',
 			'description' => 'Providing solutions For future Donations, Management, & Change.',
 			'slogan' => 'WHAT WE DO',
-			'image' => 'assets/images/banner/home3-banner-image.png',
 		]);
 	}
 }

@@ -14,7 +14,6 @@ return new class extends Migration {
 			$table->string('title');
 			$table->string('slogan');
 			$table->text('description');
-			$table->string('image');
 			$table->timestamps();
 		});
 	}

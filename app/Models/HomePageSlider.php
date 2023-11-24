@@ -12,6 +12,5 @@ class HomePageSlider extends Model {
 		'title',
 		'slogan',
 		'description',
-		'image',
 	];
 }

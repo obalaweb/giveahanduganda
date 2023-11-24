@@ -17,6 +17,12 @@ class HomePage extends Model {
 		'about_us_image',
 		'become_a_volunteer_title',
 		'become_a_volunteer_images',
+		'milestone',
+	];
+
+	protected $casts = [
+		'become_a_volunteer_images' => 'array',
+		'milestone' => 'array',
 	];
 
 	public function getItemsAttribute($value) {

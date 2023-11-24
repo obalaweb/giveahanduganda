@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\AboutPage;
+use App\Models\Brand;
 use App\Models\Course;
 use App\Models\Gallery;
 use App\Models\HomePage;
@@ -19,19 +20,22 @@ class WebController extends Controller {
 		$testimonials = Testimonial::where('status', 1)->take(4)->latest()->get();
 		$pageSetting = HomePage::first();
 		$posts = Post::where('isPublished', Post::PUBLISHED)->take(6)->latest()->get();
+		$brands = Brand::take(5)->latest()->get();
 		$title = "Home";
-		return view('index', compact('title', 'courses', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides'));
+		return view('index', compact('title', 'courses', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands'));
 	}
 
 	public function aboutUs() {
 		$team = Team::take(3)->get();
 		$pageSetting = AboutPage::first();
 		$testimonials = Testimonial::take(4)->latest()->get();
-		$pageSetting['title'] = "About Us";
-		return view('aboutUs', compact('team', 'testimonials', 'pageSetting'));
+		$title = "About Us";
+		return view('aboutUs', compact('team', 'testimonials', 'pageSetting', 'title'));
 	}
 
 	public function contactUs() {
-		return view('contactUs');
+		return view('contactUs', [
+			'title' => 'Contact Us',
+		]);
 	}
 }
