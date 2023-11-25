@@ -23,7 +23,11 @@ class AboutPage extends Model {
 		'action_items',
 	];
 
-	public function getActionItemsAttribute($value) {
-		return json_decode($value, true);
-	}
+	// public function getActionItemsAttribute($value) {
+	// 	return json_decode($value, true);
+	// }
+
+	protected $casts = [
+		'action_items' => 'array',
+	];
 }

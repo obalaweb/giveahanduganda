@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="$title">
 	<!-- common banner -->
     <section class="common-banner">
         <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>

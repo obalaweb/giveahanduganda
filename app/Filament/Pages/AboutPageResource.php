@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Models\AboutPage;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
@@ -30,15 +31,15 @@ class AboutPageResource extends Page {
 
 	use InteractsWithForms;
 
-	public function mount($settings = null): void {
-		if ($settings === null) {
-			$settings = AboutPage::first();
+	public function mount($setting = null): void {
+		if ($setting === null) {
+			$setting = AboutPage::first();
 		}
 
-		$this->settings = $settings;
+		$this->setting = $setting;
 
-		if ($this->settings) {
-			$this->form->fill($this->settings->toArray());
+		if ($this->setting) {
+			$this->fillForm();
 		}
 	}
 
@@ -64,6 +65,19 @@ class AboutPageResource extends Page {
 
 						TextInput::make('action_title')
 							->required(),
+						TextInput::make('action_video')
+							->required(),
+						FileUpload::make('action_image')
+							->image()
+							->required(),
+						Repeater::make('action_items')
+							->schema([
+								TextInput::make('title'),
+								TextInput::make('description'),
+								FileUpload::make('icon')
+									->image(),
+								TextInput::make('link'),
+							]),
 					]),
 			])
 			->statePath('data');
@@ -75,5 +89,17 @@ class AboutPageResource extends Page {
 				->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
 				->submit('save'),
 		];
+	}
+
+	public function save() {
+		$data = $this->form->getState();
+
+		$this->setting->update($data);
+
+		$this->fillForm();
+	}
+
+	private function fillForm() {
+		$this->form->fill($this->setting->toArray());
 	}
 }

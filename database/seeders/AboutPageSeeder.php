@@ -10,7 +10,7 @@ class AboutPageSeeder extends Seeder {
 	 * Run the database seeds.
 	 */
 
-	const items = [
+	const ITEMS = [
 		[
 			'title' => 'Become a Volunteer',
 			'description' => 'There are many variations offertei passages of Lorem Ipsum but time the majority have',
@@ -47,7 +47,7 @@ and the children',
 are in need',
 			'action_video' => 'https://www.youtube.com/watch?v=kS0X-yIsB64',
 			'action_image' => 'assets/images/background/video-bg.jpg',
-			'action_items' => json_encode(self::items),
+			'action_items' => json_encode(self::ITEMS),
 		]);
 	}
 }

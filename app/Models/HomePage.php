@@ -18,6 +18,7 @@ class HomePage extends Model {
 		'become_a_volunteer_title',
 		'become_a_volunteer_images',
 		'milestone',
+		'main_image',
 	];
 
 	protected $casts = [

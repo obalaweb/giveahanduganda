@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="$title">
     <!-- common banner -->
     <section class="common-banner">
         <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>
@@ -21,7 +21,7 @@
                     <div class="about-video-wrapper">
                         <div class="about-video-content">
                             <div class="about-video-image">
-                                <img src="{{ asset($pageSetting->cta_image) }}" alt="image">
+                                <img src="{{ asset('storage/'.$pageSetting->cta_image) }}" alt="image">
                             </div>
                             <div class="missiom-video-btn">
                                 <a href="{{ $pageSetting->cta_video }}" target="_blank" class="hv-popup-link"><i class="fas fa-play"></i></a>
@@ -127,7 +127,7 @@
                 <div class="col-lg-5">
                     <div class="about2-right-container">
                         <div class="about2-image wow fadeInUp">
-                            <img src="{{ asset($pageSetting->image) }}" alt="image">
+                            <img src="{{ asset('storage/'.$pageSetting->image) }}" alt="image">
                         </div>
                         <div class="round2-shape">
                             <img src="assets/images/shape/round-shape.png" alt="shape">
@@ -187,7 +187,7 @@
                             <div class="col-lg-4">
                                 <div class="video2-contant wow fadeInDown">
                                     <div class="video2-contant-icon">
-                                        <img src="{{ asset($item['icon']) }}" alt="icon">
+                                        <img src="{{ asset('storage/'.$item['icon']) }}" alt="icon">
                                     </div>
                                     <div class="video2-icon-content">
                                         <a href="{{ $item['link'] }}">{{ $item['title'] }}</a>
