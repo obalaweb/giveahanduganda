@@ -218,11 +218,11 @@
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="testimonials_content_box">
                             <div class="common-title">
-                                <h6>WHAT PEOPLE SAY</h6>
-                                <h3>See Discussion <br> About Client's Talk</h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have tigerpa suffered alteration in some form, by injected humour, or randomise all kinds of projects, big and small.</p>
+                                <h6>{{ $testSection->title }}</h6>
+                                <h3>{{ $testSection->sub_title }}</h3>
+                                <p>{{ $testSection->description }}</p>
                                 <div class="link-btn">
-                                    <a href="{{ route('teams.create') }}" class="btn-1 btn-2">View More <span></span></a>
+                                    <a href="{{ route('contactUs') }}" class="btn-1 btn-2">Learn More<span></span></a>
                                 </div>
                             </div>
                         </div>

@@ -20,7 +20,7 @@
                                         <img src="{{ getLogoUrl() ?? asset('assets/images/footer-logo.png') }}" alt="">
                                     </figure>
                                 </div>
-                                <p>Pricom makes it easy to order super soft, stylish custom printed everything that get your message into the world to very ditermind the time.</p>
+                                <p>{{ getAbout() }}</p>
                                 <ul class="social-links mt-40">
                                     <li><a href="#0"> <i class="flaticon-facebook-app-symbol"></i></a></li>
                                     <li><a href="#0"><i class="fa-brands fa-instagram"></i></a></li>
@@ -37,7 +37,7 @@
                                 <ul class="links_list">
                                     <li><a href="{{ route('aboutUs') }}">About Us</a></li>
                                     <li><a href="#">Start a Return</a></li>
-                                    <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
+                                    <li><a href="{{ route('contactUs') }}" class="{{ request()->routeIs('contactUs') ? 'active' : '' }}">Contact Us</a></li>
                                     <li><a href="#">Shipping FAQ</a></li>
                                     <li><a href="#">Careers</a></li>
                                 </ul>
@@ -65,7 +65,7 @@
                                 <ul class="contact_list">
                                     <li><a href="tel:{{ appPhone() }}"><i class="flaticon-phone-call"></i> <span>{{ appPhone() }}</span></a></li>
                                     <li><a href="mailto:{{ getEmail() }}"><i class="flaticon-email"></i> <span>{{ getEmail() }}</span></a></li>
-                                    <li><a href="contact.html"><i class="flaticon-pin"></i> <span>{{ getAddress() }}</span></a></li>
+                                    <li><a href="{{ route('contactUs') }}"><i class="flaticon-pin"></i> <span>{{ getAddress() }}</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="copyright-container">
                             <div class="copyright-left">
                                 <div class="copyright-reserved">
-                                    <p>Copyright {{ date('Y') }} - All Rights Reserved.</p>
+                                    <p>Copyright &copy;{{ date('Y') }} - All Rights Reserved.</p>
                                 </div>
                                 <div class="copyright-terms">
                                     <a href="#0">Terms </a>

@@ -6,8 +6,8 @@
                 <div class="header-top-content">
                     <div class="header_top_left">
                         <ul class="top_left">
-                            <li><a href="tel:12123002700"><i class="flaticon-phone-call"></i>{{ appPhone() }}</a></li>
-                            <li><a href="mailto:infoyouremail.com"><i class="flaticon-email"></i>{{ getEmail() }}</a></li>
+                            <li><a href="tel:{{ appPhone() }}"><i class="flaticon-phone-call"></i>{{ appPhone() }}</a></li>
+                            <li><a href="mailto:{{ getEmail() }}"><i class="flaticon-email"></i>{{ getEmail() }}</a></li>
                             <li><i class="fa-regular fa-clock"></i> Mon - Fri: 9:00 - 18:00</li>
                         </ul>
                     </div>
@@ -46,7 +46,7 @@
                                         <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('aboutUs') }}">About Us</a>
+                                        <a href="{{ route('aboutUs') }}" class="{{ request()->routeIs('aboutUs') ? 'active' : '' }}">About Us</a>
                                     </li>
                                     <li class="dropdown"><a href="#0">Pages</a>
                                         <ul>
@@ -56,9 +56,9 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="{{ route('blog.index') }}">Our Blog</a>
+                                        <a href="{{ route('blog.index') }}" class="{{ request()->routeIs('blog.index') ? 'active' : '' }}">Our Blog</a>
                                     </li>
-                                    <li><a href="{{ route('contactUs') }}"> Contact </a></li>
+                                    <li><a href="{{ route('contactUs') }}" class="{{ request()->routeIs('contactUs') ? 'active' : '' }}"> Contact </a></li>
                                 </ul>
                             </div>
                         </nav>

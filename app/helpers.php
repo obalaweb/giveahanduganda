@@ -41,3 +41,7 @@ function getWLink() {
 function getTLink() {
 	return Settings::pluck('twitter_link')->first();
 }
+
+function getAbout() {
+	return Settings::pluck('about')->first();
+}

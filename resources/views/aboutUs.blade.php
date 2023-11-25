@@ -143,24 +143,11 @@
     <div class="about-brand">
         <div class="about-brand-container">
             <div class="about-brand-slider owl-carousel owl-theme">
-                <div class="about-brand-image">
-                    <img src="assets/images/brand/a-01.png" alt="brand">
-                </div>
-                <div class="about-brand-image">
-                    <img src="assets/images/brand/a-02.png" alt="brand">
-                </div>
-                <div class="about-brand-image">
-                    <img src="assets/images/brand/a-03.png" alt="brand">
-                </div>
-                <div class="about-brand-image">
-                    <img src="assets/images/brand/a-04.png" alt="brand">
-                </div>
-                <div class="about-brand-image">
-                    <img src="assets/images/brand/a-05.png" alt="brand">
-                </div>
-                <div class="about-brand-image">
-                    <img src="assets/images/brand/a-06.png" alt="brand">
-                </div>
+                @foreach($brands as $brand)
+                    <div class="about-brand-image">
+                        <img src="{{ asset('storage/'.$brand->img_url) }}" alt="brand">
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -210,11 +197,11 @@
                 <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="testimonials_content_box">
                         <div class="common-title">
-                            <h6>WHAT PEOPLE SAY</h6>
-                            <h3>See Discussion <br> About Client's Talk</h3>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have tigerpa suffered alteration in some form, by injected humour, or randomise all kinds of projects, big and small.</p>
+                            <h6>{{ $testSection->title }}</h6>
+                            <h3>{{ $testSection->sub_title }}</h3>
+                            <p>{{ $testSection->description }}</p>
                             <div class="link-btn">
-                                <a href="volunteer-single.html" class="btn-1 btn-2">View More <span></span></a>
+                                <a href="{{ route('contactUs') }}" class="btn-1 btn-2">Learn More<span></span></a>
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\HomePage;
 use App\Models\HomePageSlider;
 use App\Models\Post;
+use App\Models\Section;
 use App\Models\Team;
 use App\Models\Testimonial;
 
@@ -21,16 +22,19 @@ class WebController extends Controller {
 		$pageSetting = HomePage::first();
 		$posts = Post::where('isPublished', Post::PUBLISHED)->take(6)->latest()->get();
 		$brands = Brand::take(5)->latest()->get();
+		$testSection = Section::where('location', 'testimonial')->first();
 		$title = "Home";
-		return view('index', compact('title', 'courses', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands'));
+		return view('index', compact('title', 'courses', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands', 'testSection'));
 	}
 
 	public function aboutUs() {
 		$team = Team::take(3)->get();
 		$pageSetting = AboutPage::first();
 		$testimonials = Testimonial::take(4)->latest()->get();
+		$brands = Brand::take(5)->latest()->get();
+		$testSection = Section::where('location', 'testimonial')->first();
 		$title = "About Us";
-		return view('aboutUs', compact('team', 'testimonials', 'pageSetting', 'title'));
+		return view('aboutUs', compact('team', 'testimonials', 'pageSetting', 'testSection', 'brands', 'title'));
 	}
 
 	public function contactUs() {
