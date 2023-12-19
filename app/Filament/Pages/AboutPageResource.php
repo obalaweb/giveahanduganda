@@ -64,8 +64,7 @@ class AboutPageResource extends Page {
 							->required(),
 						TextInput::make('title')
 							->required(),
-						RichEditor::make('description')
-							->required(),
+						RichEditor::make('description'),
 						TextInput::make('achivement')
 							->required(),
 
