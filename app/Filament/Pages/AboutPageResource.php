@@ -42,7 +42,7 @@ class AboutPageResource extends Page {
 		// dd($this->settings->toArray());
 
 		if ($this->settings) {
-			$this->form->fill($setting->toArray());
+			// $this->form->fill($setting->toArray());
 			// $this->fillForm();
 		}
 	}
