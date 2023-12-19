@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Form;
 use Filament\Pages\Page;
+use Guava\FilamentIconPicker\Forms\IconPicker;
 
 class AboutPageResource extends Page {
 	protected static ?string $navigationIcon = 'heroicon-o-information-circle';
@@ -27,7 +28,7 @@ class AboutPageResource extends Page {
 	protected static string $view = 'filament.pages.about-page-resource';
 
 	public ?array $data = [];
-	public $setting;
+	public $settings;
 
 	use InteractsWithForms;
 
@@ -36,10 +37,11 @@ class AboutPageResource extends Page {
 			$setting = AboutPage::first();
 		}
 
-		$this->setting = $setting;
+		$this->settings = $setting;
 
-		if ($this->setting) {
-			$this->fillForm();
+		if ($this->settings) {
+			$this->form->fill($this->settings->toArray());
+			// $this->fillForm();
 		}
 	}
 
@@ -74,8 +76,10 @@ class AboutPageResource extends Page {
 							->schema([
 								TextInput::make('title'),
 								TextInput::make('description'),
-								FileUpload::make('icon')
-									->image(),
+								IconPicker::make('icon')
+									->label('Icon')
+									->sets(['heroicons', 'fontawesome-solid', 'fontawesome-brands'])
+									->columns(3),
 								TextInput::make('link'),
 							]),
 					]),
@@ -94,12 +98,12 @@ class AboutPageResource extends Page {
 	public function save() {
 		$data = $this->form->getState();
 
-		$this->setting->update($data);
+		$this->settings->update($data);
 
 		$this->fillForm();
 	}
 
 	private function fillForm() {
-		$this->form->fill($this->setting->toArray());
+		$this->form->fill($this->settings->toArray());
 	}
 }
