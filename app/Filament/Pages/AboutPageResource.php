@@ -28,7 +28,7 @@ class AboutPageResource extends Page {
 	protected static string $view = 'filament.pages.about-page-resource';
 
 	public ?array $data = [];
-	public $settings;
+	public ?object $settings;
 
 	use InteractsWithForms;
 
@@ -39,7 +39,7 @@ class AboutPageResource extends Page {
 
 		$this->settings = $setting;
 
-		dd($this->settings);
+		// dd($this->settings);
 
 		if ($this->settings) {
 			$this->form->fill($this->settings->toArray());
