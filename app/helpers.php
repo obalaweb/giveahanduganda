@@ -18,6 +18,10 @@ function logoUrl() {
 	return Settings::pluck('logo')->first();
 }
 
+function getFavIconUrl() {
+	return logoUrl();
+}
+
 function appPhone() {
 	return Settings::pluck('phone')->first();
 }

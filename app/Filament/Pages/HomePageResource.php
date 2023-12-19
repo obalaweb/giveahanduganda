@@ -16,7 +16,7 @@ use Filament\Pages\Page;
 use Guava\FilamentIconPicker\Forms\IconPicker;
 
 class HomePageResource extends Page {
-	protected static ?string $navigationIcon = 'heroicon-o-document-text';
+	protected static ?string $navigationIcon = 'heroicon-o-home';
 	protected static ?string $navigationLabel = 'Home';
 
 	protected static ?string $title = 'Home Page';

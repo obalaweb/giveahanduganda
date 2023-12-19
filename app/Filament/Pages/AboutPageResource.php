@@ -15,7 +15,7 @@ use Filament\Forms\Form;
 use Filament\Pages\Page;
 
 class AboutPageResource extends Page {
-	protected static ?string $navigationIcon = 'heroicon-o-document-text';
+	protected static ?string $navigationIcon = 'heroicon-o-information-circle';
 	protected static ?string $navigationLabel = 'About';
 
 	protected static ?string $title = 'About Page';

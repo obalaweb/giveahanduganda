@@ -71,7 +71,7 @@
                         </div>
                         <div class="blank"></div>
                         <div class="header__right__button">
-                            <div class="header-link-btn"><a href="contact.html" target="_blank" class="btn-1 btn-3">Donate Now <span></span></a></div>
+                            <div class="header-link-btn"><a href="#" class="btn-1 btn-3">Donate Now <span></span></a></div>
                         </div>
                     </div>
                 </div>
