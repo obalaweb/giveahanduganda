@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TestimonialResource\Pages;
 use App\Models\Testimonial;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -36,7 +36,7 @@ class TestimonialResource extends Resource {
 					->numeric()
 					->minValue(1)
 					->maxValue(5),
-				TextArea::make('content'),
+				Textarea::make('content'),
 
 			]);
 	}

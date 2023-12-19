@@ -23,6 +23,8 @@ class HomePageResource extends Page {
 
 	protected static ?string $slug = 'home-page';
 
+	public $settings;
+
 	protected static ?int $navigationSort = 1;
 	protected static ?string $navigationGroup = 'Pages';
 
