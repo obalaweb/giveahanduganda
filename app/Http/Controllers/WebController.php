@@ -30,11 +30,12 @@ class WebController extends Controller {
 	public function aboutUs() {
 		$team = Team::take(3)->get();
 		$pageSetting = AboutPage::first();
+		$HomeSetting = json_encode(HomePage::pluck('items')->first());
 		$testimonials = Testimonial::take(4)->latest()->get();
 		$brands = Brand::take(5)->latest()->get();
 		$testSection = Section::where('location', 'testimonial')->first();
 		$title = "About Us";
-		return view('aboutUs', compact('team', 'testimonials', 'pageSetting', 'testSection', 'brands', 'title'));
+		return view('aboutUs', compact('team', 'testimonials', 'pageSetting', 'HomeSetting', 'testSection', 'brands', 'title'));
 	}
 
 	public function contactUs() {

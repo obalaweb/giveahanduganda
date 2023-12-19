@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? '' .' - '. env('APP_NAME') }}</title>
+    <title>{{ $title ?? '' .' - '. getName() }}</title>
     <!-- Fav Icon -->
     <link rel="icon" href="{{ asset('assets/images/fav-icon.png') }}" type="image/x-icon">
 

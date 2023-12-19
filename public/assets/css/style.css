@@ -1223,6 +1223,14 @@ div#offcanvasTop {
   text-align: center;
   border-radius: 50%;
 }
+.features-icon .hero-icon {
+  width: 48px;
+  height:auto;
+  color: #eb9309;
+}
+.features-icon:hover .hero-icon {
+  color: #fff;
+}
 .features-icon i{
   font-size: 38px;
 }

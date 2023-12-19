@@ -38,54 +38,22 @@
     <div class="home-two-features about-features">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-md-6 pr-0">
-                    <div class="features-content features-content-1  wow fadeInDown">
-                        <div class="features-icon features-icon-1">
-                            <i class="icon-i-01"></i>
-                        </div>
-                        <div class="features-info">
-                            <a href="events-single.html">Free Education</a>
-                            <p>There are many variations offertei passages of Lorem Ipsum but time
-                                the majority have</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 p-0">
-                    <div class="features-content features-content-2 wow fadeInUp">
-                        <div class="features-icon features-icon-2">
-                            <i class="icon-i-02"></i>
-                        </div>
-                        <div class="features-info">
-                            <a href="events-single.html">Healthy Food</a>
-                            <p>There are many variations offertei passages of Lorem Ipsum but time
-                                the majority have</p>
+                @php $homeSetting = json_decode($HomeSetting); @endphp
+                @foreach ($homeSetting as $home)
+                    <div class="col-xl-3 col-md-6 p-0">
+                        <div class="features-content features-content-{{ $loop->iteration }} wow fadeInUp">
+                            <div class="features-icon features-icon-{{ $loop->iteration }}">
+                                {{-- <x-{{ $home->icon }} /> --}}
+                                    {{-- <x-heroicon-o-academic-cap /> --}}
+                                    @svg($home->icon, 'hero-icon')
+                            </div>
+                            <div class="features-info">
+                                <a href="{{ route('events.index') }}">{{ $home->name }}</a>
+                                <p>{{ $home->description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6 p-0">
-                    <div class="features-content features-content-3 wow fadeInDown">
-                        <div class="features-icon features-icon-3">
-                            <i class="icon-i-03"></i>
-                        </div>
-                        <div class="features-info">
-                            <a href="events-single.html">Medical Help</a>
-                            <p>There are many variations offertei passages of Lorem Ipsum but time
-                                the majority have</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 pl-0">
-                    <div class="features-content features-content-4 wow fadeInUp">
-                        <div class="features-icon features-icon-4">
-                            <i class="icon-i-04"></i>
-                        </div>
-                        <div class="features-info">
-                            <a href="#">Safe Water</a>
-                            <p>There are many variations offertei passages of Lorem Ipsum but time
-                                the majority have</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

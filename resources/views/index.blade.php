@@ -77,13 +77,6 @@
                                         </div>
                                     @endif
                                 @endforeach
-                                <!-- <div class="home3-wrapper  wow fadeInUp">
-                                    <div class="features3-icon">
-                                        <i class="icon-i-03"></i>
-                                    </div>
-                                    <h6>Medical Help</h6>
-                                    <p>There are many variations of passages of Lorem Ipsum available</p>
-                                </div> -->
                             </div>
                             <div class="home3-content home3-content2 ">
                                 @foreach($pageSetting->items as $item)
