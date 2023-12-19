@@ -54,15 +54,23 @@ class AboutPageResource extends Page {
 					->schema([
 						TextInput::make('common_title')
 							->required(),
-						TextArea::make('common_description'),
-						TextInput::make('cta_title'),
-						FileUpload::make('cta_image'),
-						TextInput::make('cta_video'),
-						TextInput::make('title'),
-						RichEditor::make('description'),
-						TextInput::make('achivement'),
+						TextArea::make('common_description')
+							->required(),
+						TextInput::make('cta_title')
+							->required(),
+						FileUpload::make('cta_image')
+							->required(),
+						TextInput::make('cta_video')
+							->required(),
+						TextInput::make('title')
+							->required(),
+						RichEditor::make('description')
+							->required(),
+						TextInput::make('achivement')
+							->required(),
 
 						FileUpload::make('image')
+							->required()
 							->imageEditor()
 							->preserveFilenames()
 							->image(),
@@ -76,13 +84,17 @@ class AboutPageResource extends Page {
 							->required(),
 						Repeater::make('action_items')
 							->schema([
-								TextInput::make('title'),
-								TextInput::make('description'),
+								TextInput::make('title')
+									->required(),
+								TextInput::make('description')
+									->required(),
 								IconPicker::make('icon')
+									->required()
 									->label('Icon')
 									->sets(['heroicons', 'fontawesome-solid', 'fontawesome-brands'])
 									->columns(3),
-								TextInput::make('link'),
+								TextInput::make('link')
+									->required(),
 							]),
 					]),
 			])
@@ -99,7 +111,9 @@ class AboutPageResource extends Page {
 
 	public function save() {
 		$data = $this->form->getState();
-
+		if(!$data['description']) {
+			$data['description'] = "default description";
+		}
 		$this->settings->update($data);
 
 		$this->fillForm();
