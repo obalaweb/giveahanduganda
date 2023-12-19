@@ -251,6 +251,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-image">
+                            @dd($pageSetting->become_a_volunteer_images)
                             @foreach($pageSetting->become_a_volunteer_images as $image)
                                 <div class="{{ $loop->iteration === 1 ? 'volunteer-image1' : 'volunteer-image2  wow fadeInUp'}}">
                                     <img src="{{ asset('storage/'. $image) }}" alt="image">
