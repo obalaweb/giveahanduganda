@@ -39,10 +39,10 @@ class AboutPageResource extends Page {
 
 		$this->settings = $setting;
 
-		// dd($this->settings);
+		// dd($this->settings->toArray());
 
 		if ($this->settings) {
-			$this->form->fill($this->settings->toArray());
+			$this->form->fill($setting->toArray());
 			// $this->fillForm();
 		}
 	}
