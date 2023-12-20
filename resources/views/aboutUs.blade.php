@@ -82,11 +82,20 @@
                                             <i class="flaticon-phone-call"></i>
                                         </div>
                                         <div class="mail-info">
+                                            <span>Call Now!</span>
+                                            <a href="tel:{{ appPhone() }}">{{ appPhone() }}</a>
+                                        </div>
+                                    </div>               
+                                    <div class="about-right-mail  wow fadeInDown">
+                                        <div class="mail-icon">
+                                            <i class="flaticon-phone-call"></i>
+                                        </div>
+                                        <div class="mail-info">
                                             <span>Email Now!</span>
-                                            <a href="mailto:{{ getEmail() }}">{{ getEmail() }}</a>
+                                            <a href="tel:{{ getEmail() }}">{{ getEmail() }}</a>
                                         </div>
                                     </div>
-                                    <a href="about-us.html" class="btn-1 btn-2  wow fadeInUp">Learn More <span></span></a>
+                                    <a href="{{ route("contactUs") }}" class="btn-1 btn-2  wow fadeInUp">Contact Us<span></span></a>
                                 </div>
                             </div>
                         </div>
@@ -141,8 +150,9 @@
                         @foreach($pageSetting->action_items as $item)
                             <div class="col-lg-4">
                                 <div class="video2-contant wow fadeInDown">
-                                    <div class="video2-contant-icon">
-                                        <img src="{{ asset('storage/'.$item['icon']) }}" alt="icon">
+                                    <div class="video2-contant-icon" style="color: #f89b12">
+                                        {{-- <img src="{{ asset('storage/'.$item['icon']) }}" alt="icon"> --}}
+                                        @svg($item['icon'], 'hero-icon')
                                     </div>
                                     <div class="video2-icon-content">
                                         <a href="{{ $item['link'] }}">{{ $item['title'] }}</a>
