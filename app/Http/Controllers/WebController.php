@@ -13,6 +13,7 @@ use App\Models\Section;
 use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\Type;
+use App\Models\User;
 
 class WebController extends Controller
 {

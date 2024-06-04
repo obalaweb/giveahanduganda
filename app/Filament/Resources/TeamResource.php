@@ -29,7 +29,7 @@ class TeamResource extends Resource
             ->schema([
                 Select::make('user_id')
                     ->label('Volunteer')
-                    ->options(User::all()->pluck('name', 'id'))
+                    ->options(User::whereDoesntHave('team')->get()->pluck('name', 'id'))
                     ->searchable(),
                 FileUpload::make('profile'),
                 MarkdownEditor::make('about'),

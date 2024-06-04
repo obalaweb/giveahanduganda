@@ -36,18 +36,14 @@ class Event extends Model
     public function getStartAttribute($value)
     {
         $value = $this->attributes['from'];
-        $start = Carbon::parse($value);
-        $start->setTimezone(config('app.timezone'));
 
-        return $start->format('h:m A');
+        return Carbon::parse($value)->format('h:m A');
     }
 
     public function getStopAttribute($value)
     {
         $value = $this->attributes['to'];
-        $stop = Carbon::parse($value);
-        $stop->setTimezone(config('app.timezone'));
 
-        return $stop->format('h:m A');
+        return Carbon::parse($value)->format('h:m A');
     }
 }

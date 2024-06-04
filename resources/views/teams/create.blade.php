@@ -1,19 +1,18 @@
 <x-app-layout>
+    @section('title', 'Become a volunteer')
+    <!-- common banner -->
+    <section class="common-banner">
+        <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>
 
+        <div class="common-banner-title">
+            <h3>Become a Volunteer</h3>
+            <a href="index-2.html">Home </a> <span>/</span>
+            <a href="#0">Become a Volunteer</a>
+        </div>
+    </section>
+    <!-- common banner -->
 
-	        <!-- common banner -->
-        <section class="common-banner">
-            <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>
-
-            <div class="common-banner-title">
-                <h3>Become a Volunteer</h3>
-                <a href="index-2.html">Home </a> <span>/</span>
-                <a href="#0">Become a Volunteer</a>
-            </div>
-        </section>
-        <!-- common banner -->
-
-      <section class="become-a-volunteer">
+    <section class="become-a-volunteer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -52,6 +51,6 @@
                 </div>
             </div>
         </div>
-      </section>
+    </section>
 
 </x-app-layout>
