@@ -163,18 +163,19 @@
                     <div class="col-lg-4">
                         <div class="featured-left-wrapper">
                             <div class="common-title">
-                                <h6>WE LOVE TO HELP POOR</h6>
+                                <h6>WE LOVE TO HELP THE POOR</h6>
                                 <h3>Check Featured Campaigns</h3>
                             </div>
                             <div class="featured-left-content">
                                 <a href="{{ route('course.index') }}" class="btn-1 btn-2">All Caterories
                                     <span></span></a>
                                 <ul>
-                                    <li><a href="#">Education <i class="fa-solid fa-angle-left"></i></a></li>
-                                    <li><a href="#">Medical <i class="fa-solid fa-angle-left"></i></a></li>
-                                    <li><a href="#">Health <i class="fa-solid fa-angle-left"></i></a></li>
-                                    <li><a href="#">Education <i class="fa-solid fa-angle-left"></i></a></li>
-                                    <li><a href="#">Medicine <i class="fa-solid fa-angle-left"></i></a></li>
+                                    @forelse ($types as $type)
+                                        <li><a href="#">{{ $type->name }} <i
+                                                    class="fa-solid fa-angle-left"></i></a></li>
+                                    @empty
+                                        <p>Check back later</p>
+                                    @endforelse
                                 </ul>
                             </div>
                         </div>

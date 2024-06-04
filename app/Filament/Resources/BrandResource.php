@@ -11,45 +11,50 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 
-class BrandResource extends Resource {
-	protected static ?string $model = Brand::class;
+class BrandResource extends Resource
+{
+    protected static ?string $model = Brand::class;
 
-	protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
-	public static function form(Form $form): Form {
-		return $form
-			->schema([
-				FileUpload::make('img_url')
-					->label('Brand Logo')
-					->image(),
-			]);
-	}
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                FileUpload::make('img_url')
+                    ->label('Brand Logo')
+                    ->image()
+                    ->required(),
+            ]);
+    }
 
-	public static function table(Table $table): Table {
-		return $table
-			->columns([
-				ImageColumn::make('img_url'),
-			])
-			->filters([
-				//
-			])
-			->actions([
-				Tables\Actions\EditAction::make(),
-				Tables\Actions\DeleteAction::make(),
-			])
-			->bulkActions([
-				Tables\Actions\BulkActionGroup::make([
-					Tables\Actions\DeleteBulkAction::make(),
-				]),
-			])
-			->emptyStateActions([
-				Tables\Actions\CreateAction::make(),
-			]);
-	}
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                ImageColumn::make('img_url'),
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ])
+            ->emptyStateActions([
+                Tables\Actions\CreateAction::make(),
+            ]);
+    }
 
-	public static function getPages(): array {
-		return [
-			'index' => Pages\ManageBrands::route('/'),
-		];
-	}
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ManageBrands::route('/'),
+        ];
+    }
 }

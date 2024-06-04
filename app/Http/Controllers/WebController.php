@@ -12,12 +12,13 @@ use App\Models\Post;
 use App\Models\Section;
 use App\Models\Team;
 use App\Models\Testimonial;
+use App\Models\Type;
 
 class WebController extends Controller
 {
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::with('type')->get();
         $team = Team::take(3)->get();
         $slides = HomePageSlider::all();
         $galleries = Gallery::take(12)->latest()->get();
@@ -27,10 +28,11 @@ class WebController extends Controller
         $brands = Brand::take(5)->latest()->get();
         $testSection = Section::where('location', 'testimonial')->first();
         $title = "Home";
+        $types = Type::all();
         if (gettype($pageSetting->become_a_volunteer_images) == 'string') {
             $pageSetting->become_a_volunteer_images = json_decode($pageSetting->become_a_volunteer_images);
         };
-        return view('index', compact('title', 'courses', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands', 'testSection'));
+        return view('index', compact('title', 'courses', 'types', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands', 'testSection'));
     }
 
     public function aboutUs()
