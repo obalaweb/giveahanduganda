@@ -1,10 +1,10 @@
 name: 🚀 Deploy on push main
 
-on: 
+on:
   push:
-    branches:    
-      - main 
-    
+    branches:
+      - main
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -17,7 +17,6 @@ jobs:
       - name: 📂 Deploy to server via ssh
         uses: appleboy/ssh-action@v0.1.7
         with:
-
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASS }}
