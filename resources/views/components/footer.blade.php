@@ -1,14 +1,15 @@
 <footer class="main__footer p_relative">
     <div class="f-love1">
-        <img src="assets/images/shape/f-love-01.png" alt="Love">
+        <img src="{{ asset('assets/images/shape/f-love-01.png') }}" alt="Love">
     </div>
     <div class="f-love2">
-        <img src="assets/images/shape/f-love-02.png" alt="Love">
+        <img src="{{ asset('assets/images/shape/f-love-02.png') }}" alt="Love">
     </div>
     <div class="f-love3">
-        <img src="assets/images/shape/f-love-03.png" alt="Love">
+        <img src="{{ asset('assets/images/shape/f-love-03.png') }}" alt="Love">
     </div>
-    <div class="main__footer__top" style="background-image: url(assets/images/background/footer-bg.jpg);">
+    <div class="main__footer__top"
+        style="background-image: url({{ asset('assets/images/background/footer-bg.jpg') }});">
         <div class="footer__middle  p_relative d_block">
             <div class="auto_container">
                 <div class="footer__middle__content">

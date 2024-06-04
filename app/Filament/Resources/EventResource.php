@@ -7,9 +7,8 @@ use App\Models\Event;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Form;
@@ -32,14 +31,15 @@ class EventResource extends Resource
                     ->schema([
                         FileUpload::make('thumbnail')
                             ->image()
+                            ->required()
                             ->maxFiles(1)
                             ->columnSpanFull(),
                         TextInput::make('name'),
                         TextInput::make('category'),
-                        RichEditor::make('venue'),
-                        MarkdownEditor::make('about'),
-                        DatePicker::make('date')
+                        MarkdownEditor::make('about')
                             ->columnSpanFull(),
+                        Textarea::make('venue'),
+                        DatePicker::make('date'),
                         TimePicker::make('from'),
                         TimePicker::make('to'),
                     ])->columns(2),

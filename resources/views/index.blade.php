@@ -1,4 +1,5 @@
-<x-app-layout :title="$title">
+<x-app-layout>
+    @section('title', 'Home')
     <!-- banner section starts -->
     <section class="banner home-2-banner home-3-banner">
         <div class="auto-container">

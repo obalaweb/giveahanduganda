@@ -27,12 +27,11 @@ class WebController extends Controller
         $posts = Post::where('isPublished', Post::PUBLISHED)->take(6)->latest()->get();
         $brands = Brand::take(5)->latest()->get();
         $testSection = Section::where('location', 'testimonial')->first();
-        $title = "Home";
         $types = Type::all();
         if (gettype($pageSetting->become_a_volunteer_images) == 'string') {
             $pageSetting->become_a_volunteer_images = json_decode($pageSetting->become_a_volunteer_images);
         };
-        return view('index', compact('title', 'courses', 'types', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands', 'testSection'));
+        return view('index', compact('courses', 'types', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands', 'testSection'));
     }
 
     public function aboutUs()
@@ -43,14 +42,11 @@ class WebController extends Controller
         $testimonials = Testimonial::take(4)->latest()->get();
         $brands = Brand::take(5)->latest()->get();
         $testSection = Section::where('location', 'testimonial')->first();
-        $title = "About Us";
-        return view('aboutUs', compact('team', 'testimonials', 'pageSetting', 'HomeSetting', 'testSection', 'brands', 'title'));
+        return view('aboutUs', compact('team', 'testimonials', 'pageSetting', 'HomeSetting', 'testSection', 'brands'));
     }
 
     public function contactUs()
     {
-        return view('contactUs', [
-            'title' => 'Contact Us',
-        ]);
+        return view('contactUs');
     }
 }

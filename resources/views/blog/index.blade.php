@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    @section('title', 'Blog')
 
     <!-- common banner -->
     <section class="common-banner">
@@ -20,14 +20,15 @@
                 @forelse($posts as $post)
                     <div class="col-lg-4">
                         <div class="blog-page-container">
-                            <div class="blog-page-image"
-                                style="background-image: url('{{ $post->image ?? asset('assets/images/gallery/default.jpg') }}');
+                            <a href="{{ route('blog.show', $post->slug) }}">
+                                <div class="blog-page-image"
+                                    style="background-image: url('{{ $post->image ?? asset('assets/images/gallery/default.jpg') }}');
             background-size: cover; background-repeat: no-repeat; width:100%; height:280px;">
-                            </div>
-                            {{-- <img src="{{ " alt="image"> --}}
+                                </div>
+                            </a>
                             <div class="blog-page-content">
                                 <p><i class="fa-regular fa-calendar-days"></i> 27/02/2022</p>
-                                <h6>{{ $post->title }}</h6>
+                                <h6><a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a></h6>
                                 <p>{{ $post->description }}</p>
                                 <a href="{{ route('blog.show', $post->slug) }}">READ MORE <i
                                         class="fa-solid fa-angle-right"></i></a>

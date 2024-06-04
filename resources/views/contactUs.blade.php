@@ -1,5 +1,7 @@
-<x-app-layout :title="$title">
-	<!-- common banner -->
+<x-app-layout>
+    @section('title', 'Contact Us')
+
+    <!-- common banner -->
     <section class="common-banner">
         <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>
 
@@ -22,7 +24,8 @@
                     </div>
                     <div class="contact-page-form">
                         <div class="bs-form-top">
-                            <input type="text" class="v-form bs-form bs-form-top" name="name" placeholder="Your Name">
+                            <input type="text" class="v-form bs-form bs-form-top" name="name"
+                                placeholder="Your Name">
                             <input type="email" class="v-form bs-form" name="email" placeholder="Email Adress">
                         </div>
                         <input type="text" class="v-form" name="address" placeholder="Your Address">
@@ -71,12 +74,14 @@
             </div>
         </div>
     </section>
-   <!-- contact -->
+    <!-- contact -->
 
-   <!-- contact map -->
-   <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.0468741669197!2d-73.96154552352756!3d40.78298363326635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258a29a5e9e99%3A0x4a01c8df6fb3cb8!2sSolomon%20R.%20Guggenheim%20Museum!5e0!3m2!1sen!2sbd!4v1683783036617!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-   </div>
-   <!-- contact map -->
+    <!-- contact map -->
+    <div class="contact-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.0468741669197!2d-73.96154552352756!3d40.78298363326635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258a29a5e9e99%3A0x4a01c8df6fb3cb8!2sSolomon%20R.%20Guggenheim%20Museum!5e0!3m2!1sen!2sbd!4v1683783036617!5m2!1sen!2sbd"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!-- contact map -->
 
 </x-app-layout>

@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? '' }} - {{ getName() }}</title>
+    {{-- <title>{{ $title ?? '' }} - {{ getName() }}</title> --}}
+    <title>@yield('title') - {{ getName() }}</title>
     <!-- Fav Icon -->
     <link rel="icon" href="{{ getFavIconUrl() }}" type="image/x-icon">
 
@@ -40,20 +41,22 @@
 </head>
 
 <!-- page wrapper -->
+
 <body>
     <div class="boxed_wrapper">
-    <!-- preloader -->
-            {{-- <x-preloader /> --}}
+        <!-- preloader -->
+        {{-- <x-preloader /> --}}
         <!-- preloader end -->
 
         <!-- main header -->
-            <x-header />
+        <x-header />
         <!-- main-header end -->
 
         <!-- search popup start-->
         <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
             <div class="offcanvas-header">
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i class="flaticon-add"></i></button>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                        class="flaticon-add"></i></button>
             </div>
             <div class="offcanvas-body">
                 <form>
@@ -71,11 +74,11 @@
         {{ $slot }}
 
         <!-- news-letter -->
-            <x-news-letter />
+        <x-news-letter />
         <!-- news-letter-end -->
 
         <!-- main-footer -->
-            <x-footer />
+        <x-footer />
         <!-- main-footer end -->
     </div>
 
