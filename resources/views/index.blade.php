@@ -40,7 +40,7 @@
                 <div class="col-lg-6">
                     <div class="banner-right">
                         <div class="banner-right-image">
-                            <img src="{{ asset($pageSetting->main_image) }}" alt="img">
+                            <img src="{{ asset('storage/' . $pageSetting->main_image) }}" alt="img">
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                 <div class="col-lg-5">
                     <div class="home3-about-left-content">
                         <div class="home3-about-image">
-                            <img src="{{ asset($pageSetting->about_us_image) }}" alt="image">
+                            <img src="{{ asset('storage/' . $pageSetting->about_us_image) }}" alt="image">
                         </div>
                         <div class="about3-round-shape">
                             <img src="assets/images/shape/round-shape.png" alt="shape">
@@ -264,7 +264,7 @@
                         @forelse($pageSetting->become_a_volunteer_images as $image)
                             <div
                                 class="{{ $loop->iteration === 1 ? 'volunteer-image1' : 'volunteer-image2  wow fadeInUp' }}">
-                                <img src="{{ asset($image) }}" alt="image">
+                                <img src="{{ asset('storage/' . $image) }}" alt="image">
                             </div>
                         @empty
                         @endforelse
@@ -340,7 +340,7 @@
             <div class="brand-carousel owl-carousel owl-theme">
                 @forelse($brands as $brand)
                     <div class="brand-image">
-                        <img src="{{ asset($brand->img_url) }}" alt="brand">
+                        <img src="{{ asset('storage/' . $brand->img_url) }}" alt="brand">
                     </div>
                 @empty
                 @endforelse
