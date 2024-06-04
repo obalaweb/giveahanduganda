@@ -27,8 +27,9 @@ class WebController extends Controller
         $brands = Brand::take(5)->latest()->get();
         $testSection = Section::where('location', 'testimonial')->first();
         $title = "Home";
-
-        $pageSetting->become_a_volunteer_images = json_decode($pageSetting->become_a_volunteer_images);
+        if (gettype($pageSetting->become_a_volunteer_images) == 'string') {
+            $pageSetting->become_a_volunteer_images = json_decode($pageSetting->become_a_volunteer_images);
+        };
         return view('index', compact('title', 'courses', 'team', 'posts', 'testimonials', 'galleries', 'pageSetting', 'slides', 'brands', 'testSection'));
     }
 
