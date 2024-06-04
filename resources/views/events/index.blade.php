@@ -3,7 +3,8 @@
 
     <!-- common banner -->
     <section class="common-banner">
-        <div class="common-banner-image" style="background: url(assets/images/banner/common-banner-01.jpg);"></div>
+        <div class="common-banner-image"
+            style="background: url({{ asset('assets/images/banner/common-banner-01.jpg') }});"></div>
 
         <div class="common-banner-title">
             <h3>Events</h3>
@@ -27,7 +28,8 @@
                                 <div class="event-location">
                                     <ul>
                                         <li><i class="icon-location"></i> {{ $event->venue }}</li>
-                                        <li><i class="fa-regular fa-clock"></i> 10 AM- 11 AM</li>
+                                        <li><i class="fa-regular fa-clock"></i> {{ $event->start }} -
+                                            {{ $event->stop }}</li>
                                     </ul>
                                 </div>
                                 <a href="{{ route('events.show', $event->id) }}">
