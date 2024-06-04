@@ -21,10 +21,11 @@
                     <div class="about-video-wrapper">
                         <div class="about-video-content">
                             <div class="about-video-image">
-                                <img src="{{ asset('storage/'.$pageSetting->cta_image) }}" alt="image">
+                                <img src="{{ asset('storage/' . $pageSetting->cta_image) }}" alt="image">
                             </div>
                             <div class="missiom-video-btn">
-                                <a href="{{ $pageSetting->cta_video }}" target="_blank" class="hv-popup-link"><i class="fas fa-play"></i></a>
+                                <a href="{{ $pageSetting->cta_video }}" target="_blank" class="hv-popup-link"><i
+                                        class="fas fa-play"></i></a>
                             </div>
                         </div>
                     </div>
@@ -44,8 +45,10 @@
                         <div class="features-content features-content-{{ $loop->iteration }} wow fadeInUp">
                             <div class="features-icon features-icon-{{ $loop->iteration }}">
                                 {{-- <x-{{ $home->icon }} /> --}}
-                                    {{-- <x-heroicon-o-academic-cap /> --}}
-                                    @svg($home->icon, 'hero-icon')
+                                {{-- <x-heroicon-o-academic-cap /> --}}
+                                {{-- @dd($home->icon) --}}
+                                {{-- @svg($home->icon, 'hero-icon') --}}
+                                <x-icon name="{{ $home->icon }}" />
                             </div>
                             <div class="features-info">
                                 <a href="{{ route('events.index') }}">{{ $home->name }}</a>
@@ -85,7 +88,7 @@
                                             <span>Call Now!</span>
                                             <a href="tel:{{ appPhone() }}">{{ appPhone() }}</a>
                                         </div>
-                                    </div>               
+                                    </div>
                                     <div class="about-right-mail  wow fadeInDown">
                                         <div class="mail-icon">
                                             <i class="flaticon-phone-call"></i>
@@ -95,7 +98,8 @@
                                             <a href="tel:{{ getEmail() }}">{{ getEmail() }}</a>
                                         </div>
                                     </div>
-                                    <a href="{{ route("contactUs") }}" class="btn-1 btn-2  wow fadeInUp">Contact Us<span></span></a>
+                                    <a href="{{ route('contactUs') }}" class="btn-1 btn-2  wow fadeInUp">Contact
+                                        Us<span></span></a>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +108,7 @@
                 <div class="col-lg-5">
                     <div class="about2-right-container">
                         <div class="about2-image wow fadeInUp">
-                            <img src="{{ asset('storage/'.$pageSetting->image) }}" alt="image">
+                            <img src="{{ asset('storage/' . $pageSetting->image) }}" alt="image">
                         </div>
                         <div class="round2-shape">
                             <img src="assets/images/shape/round-shape.png" alt="shape">
@@ -120,9 +124,9 @@
     <div class="about-brand">
         <div class="about-brand-container">
             <div class="about-brand-slider owl-carousel owl-theme">
-                @foreach($brands as $brand)
+                @foreach ($brands as $brand)
                     <div class="about-brand-image">
-                        <img src="{{ asset('storage/'.$brand->img_url) }}" alt="brand">
+                        <img src="{{ asset('storage/' . $brand->img_url) }}" alt="brand">
                     </div>
                 @endforeach
             </div>
@@ -147,7 +151,7 @@
                 </div>
                 <div class="video2-container">
                     <div class="row">
-                        @foreach($pageSetting->action_items as $item)
+                        @foreach ($pageSetting->action_items as $item)
                             <div class="col-lg-4">
                                 <div class="video2-contant wow fadeInDown">
                                     <div class="video2-contant-icon" style="color: #f89b12">
@@ -175,9 +179,9 @@
                 <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="testimonials_content_box">
                         <div class="common-title">
-                            <h6>{{ $testSection->title }}</h6>
-                            <h3>{{ $testSection->sub_title }}</h3>
-                            <p>{{ $testSection->description }}</p>
+                            <h6>{{ $testSection->title ?? '' }}</h6>
+                            <h3>{{ $testSection->sub_title ?? '' }}</h3>
+                            <p>{{ $testSection->description ?? '' }}</p>
                             <div class="link-btn">
                                 <a href="{{ route('contactUs') }}" class="btn-1 btn-2">Learn More<span></span></a>
                             </div>
@@ -212,7 +216,7 @@
                         <h3>Meet Our Volunteer Team</h3>
                     </div>
                 </div>
-                @foreach($team as $volunteer)
+                @foreach ($team as $volunteer)
                     <x-team :volunteer="$volunteer" />
                 @endforeach
             </div>
