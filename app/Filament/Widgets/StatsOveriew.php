@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Event;
 use App\Models\Post;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -23,7 +24,7 @@ class StatsOveriew extends BaseWidget
                 ->descriptionIcon("heroicon-m-arrow-trending-down")
                 ->descriptionColor('danger')
                 ->chart([9, 3, 4, 12, 6, 3, 5, 3]),
-            Stat::make('Events', User::count())
+            Stat::make('Events', Event::count())
                 ->description('Events')
                 ->descriptionIcon("heroicon-m-arrow-trending-down")
                 ->descriptionColor('danger')
