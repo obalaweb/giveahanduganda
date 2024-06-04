@@ -17,7 +17,8 @@
                             <div class="footer_widget logo_widget">
                                 <div class="footer__logo mb_25">
                                     <figure>
-                                        <img src="{{ getLogoUrl() ?? asset('assets/images/footer-logo.png') }}" alt="">
+                                        <img src="{{ getLogoUrl() ?? asset('assets/images/footer-logo.png') }}"
+                                            alt="">
                                     </figure>
                                 </div>
                                 <p>{{ getAbout() }}</p>
@@ -36,9 +37,9 @@
                                 </div>
                                 <ul class="links_list">
                                     <li><a href="{{ route('aboutUs') }}">About Us</a></li>
-                                    <li><a href="#">Start a Return</a></li>
-                                    <li><a href="{{ route('contactUs') }}" class="{{ request()->routeIs('contactUs') ? 'active' : '' }}">Contact Us</a></li>
-                                    <li><a href="#">Shipping FAQ</a></li>
+                                    <li><a href="{{ route('contactUs') }}"
+                                            class="{{ request()->routeIs('contactUs') ? 'active' : '' }}">Contact Us</a>
+                                    </li>
                                     <li><a href="#">Careers</a></li>
                                 </ul>
                             </div>
@@ -49,9 +50,9 @@
                                     <h4>Resources</h4>
                                 </div>
                                 <ul class="links_list">
-                                    <li><a href="contact.html">Help Center</a></li>
-                                    <li><a href="causes-details.html">Delivery</a></li>
-                                    <li><a href="volunteer.html">Return Policy</a></li>
+                                    <li><a href="{{ route('contactUs') }}">Help Center</a></li>
+                                    <li><a href="#">Delivery</a></li>
+                                    <li><a href="#">Return Policy</a></li>
                                     <li><a href="#">Policies</a></li>
                                     <li><a href="#">Gift Cards</a></li>
                                 </ul>
@@ -63,9 +64,12 @@
                                     <h4>Contact Us</h4>
                                 </div>
                                 <ul class="contact_list">
-                                    <li><a href="tel:{{ appPhone() }}"><i class="flaticon-phone-call"></i> <span>{{ appPhone() }}</span></a></li>
-                                    <li><a href="mailto:{{ getEmail() }}"><i class="flaticon-email"></i> <span>{{ getEmail() }}</span></a></li>
-                                    <li><a href="{{ route('contactUs') }}"><i class="flaticon-pin"></i> <span>{{ getAddress() }}</span></a></li>
+                                    <li><a href="tel:{{ appPhone() }}"><i class="flaticon-phone-call"></i>
+                                            <span>{{ appPhone() }}</span></a></li>
+                                    <li><a href="mailto:{{ getEmail() }}"><i class="flaticon-email"></i>
+                                            <span>{{ getEmail() }}</span></a></li>
+                                    <li><a href="{{ route('contactUs') }}"><i class="flaticon-pin"></i>
+                                            <span>{{ getAddress() }}</span></a></li>
                                 </ul>
                             </div>
                         </div>
