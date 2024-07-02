@@ -92,7 +92,7 @@ class CourseResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->columnSpan(1 / 2),
+                TextColumn::make('title')->wrap(),
                 TextColumn::make('total')->badge()->color('info')->tooltip('USD'),
                 TextColumn::make('raised')->badge()->color('success')->tooltip('USD'),
             ])

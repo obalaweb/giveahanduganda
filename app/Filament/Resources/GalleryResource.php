@@ -32,7 +32,7 @@ class GalleryResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('url'),
+                ImageColumn::make('url')->label('Image')->columnSpanFull(),
             ])
             ->filters([
                 //

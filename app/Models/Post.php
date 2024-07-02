@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\PostStatus;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,14 +13,6 @@ class Post extends Model
 {
     use HasFactory;
 
-    const DRAFT = 0;
-    const PUBLISHED = 1;
-
-    const STATUS = [
-        self::DRAFT => "draft",
-        self::PUBLISHED => "published",
-    ];
-
     protected $fillable = [
         'title',
         'slug',
@@ -27,11 +21,12 @@ class Post extends Model
         'user_id',
         'category_id',
         'thumbnail',
-        'isPublished',
+        'status',
     ];
 
     protected $casts = [
         'tags' => 'array',
+        'status' =>  PostStatus::class,
     ];
 
     public function author(): BelongsTo
@@ -56,9 +51,9 @@ class Post extends Model
         return Str::limit($this->body, 100);
     }
 
-    public function isPublished(): bool
+    public function scopePublished(Builder $query)
     {
-        return $this->isPublished === self::PUBLISHED;
+        return $query->where('status', PostStatus::PUBLISHED->value);
     }
 
     public function getDescriptionAttribute()

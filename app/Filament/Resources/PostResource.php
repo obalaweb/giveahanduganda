@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\PostStatus;
 use App\Enums\PostStatusEnum;
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -53,13 +55,8 @@ class PostResource extends Resource
                                 TextInput::make('slug')
                                     ->required(),
                             ]),
-                        Select::make('isPublished')
-                            ->label('Status')
-                            ->options([
-                                0 => 'Draft',
-                                1 => 'Publish'
-                            ])->required()
-                            ->searchable(),
+                        Radio::make('status')
+                            ->options(PostStatus::class),
                     ])->columns(2)
             ]);
     }
@@ -68,24 +65,12 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title'),
+                TextColumn::make('title')->wrap(),
                 TextColumn::make('tags')
                     ->badge()
                     ->color('info')
                     ->separator(','),
-                // TextColumn::make('isPublished')
-                //     ->label('Status')
-                // ->color('primary'),
-                TextColumn::make('isPublished')
-                    ->label('Status')
-                    ->badge()
-                    ->color(fn (int $state): string => match ($state) {
-                        Post::DRAFT => 'info',
-                        Post::PUBLISHED => 'success',
-                    }),
-            ])
-            ->filters([
-                //
+                TextColumn::make('status')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -113,14 +98,6 @@ class PostResource extends Resource
             'index' => Pages\ListPosts::route('/'),
             'create' => Pages\CreatePost::route('/create'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
-        ];
-    }
-
-    function getPostStatusLabels(): array
-    {
-        return [
-            PostStatusEnum::DRAFT => 'Draft',
-            PostStatusEnum::PUBLISHED => 'Published',
         ];
     }
 }

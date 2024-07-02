@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PostStatus;
 use App\Models\AboutPage;
 use App\Models\Brand;
 use App\Models\Course;
@@ -25,7 +26,7 @@ class WebController extends Controller
         $galleries = Gallery::take(12)->latest()->get();
         $testimonials = Testimonial::where('status', 1)->take(4)->latest()->get();
         $pageSetting = HomePage::first();
-        $posts = Post::where('isPublished', Post::PUBLISHED)->take(6)->latest()->get();
+        $posts = Post::published()->take(6)->latest()->get();
         $brands = Brand::take(5)->latest()->get();
         $testSection = Section::where('location', 'testimonial')->first();
         $types = Type::all();

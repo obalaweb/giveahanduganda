@@ -36,9 +36,9 @@ class SectionResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title'),
-                TextColumn::make('location'),
-                TextColumn::make('sub_title'),
+                TextColumn::make('title')->wrap(),
+                TextColumn::make('location')->wrap(),
+                TextColumn::make('sub_title')->wrap(),
 
             ])
             ->filters([

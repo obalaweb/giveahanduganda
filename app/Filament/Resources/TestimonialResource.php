@@ -49,8 +49,8 @@ class TestimonialResource extends Resource
             ->columns([
                 ImageColumn::make('thumbnail')
                     ->circular(),
-                TextColumn::make('name'),
-                TextColumn::make('profession'),
+                TextColumn::make('name')->wrap(),
+                TextColumn::make('profession')->wrap(),
                 IconColumn::make('rate')
                     ->icon(function (int $state) {
                         while ($state > 0) {

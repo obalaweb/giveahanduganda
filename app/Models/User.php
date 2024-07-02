@@ -53,6 +53,15 @@ class User extends Authenticatable implements FilamentUser
         'status' => self::class,
     ];
 
+    public function getStatusAttribute(): string
+    {
+        if ($this->attributes['status'] === 'active') {
+            return 'active';
+        } else {
+            return 'banned';
+        }
+    }
+
     public function team()
     {
         return $this->belongsTo(Team::class, 'id', 'user_id');
