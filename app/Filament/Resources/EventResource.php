@@ -14,6 +14,7 @@ use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class EventResource extends Resource
@@ -50,7 +51,11 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
+                TextColumn::make('category'),
+                TextColumn::make('date'),
+                TextColumn::make('from')->badge()->color('info'),
+                TextColumn::make('to')->badge()->color('success')
             ])
             ->filters([
                 //

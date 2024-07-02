@@ -44,9 +44,9 @@ class TeamResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('profile')->circular(),
                 TextColumn::make('user.name'),
                 TextColumn::make('expertise'),
-                ImageColumn::make('profile'),
             ])
             ->filters([
                 //

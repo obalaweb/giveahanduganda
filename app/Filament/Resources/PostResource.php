@@ -71,16 +71,18 @@ class PostResource extends Resource
                 TextColumn::make('title'),
                 TextColumn::make('tags')
                     ->badge()
+                    ->color('info')
                     ->separator(','),
+                // TextColumn::make('isPublished')
+                //     ->label('Status')
+                // ->color('primary'),
                 TextColumn::make('isPublished')
                     ->label('Status')
-                    ->color('primary'),
-                // TextColumn::make('isPublished')
-                // 	->badge()
-                // 	->color(fn(int $state): string => match ($state) {
-                // 		Post::DRAFT => 'Draft',
-                // 		Post::PUBLISHED => 'Published',
-                // 	}),
+                    ->badge()
+                    ->color(fn (int $state): string => match ($state) {
+                        Post::DRAFT => 'info',
+                        Post::PUBLISHED => 'success',
+                    }),
             ])
             ->filters([
                 //

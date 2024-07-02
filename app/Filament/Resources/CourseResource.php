@@ -16,6 +16,8 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
@@ -90,7 +92,9 @@ class CourseResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title')->columnSpan(1 / 2),
+                TextColumn::make('total')->badge()->color('info')->tooltip('USD'),
+                TextColumn::make('raised')->badge()->color('success')->tooltip('USD'),
             ])
             ->filters([
                 //
