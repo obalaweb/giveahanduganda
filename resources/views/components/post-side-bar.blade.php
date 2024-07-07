@@ -32,8 +32,9 @@
         </div>
         @forelse ($recentPosts as $post)
             <div class="causes-details-right-recent">
-                <div class="causes-recent-image">
-                    <img src="{{ $post->image }}" alt="image">
+                <div class="causes-recent-image"
+                    style="background-image:url({{ $post->image }}); background-size:cover; background-repeat: no-repeat;background-position: center">
+                    {{-- <img src="{{ $post->image }}" alt="image"> --}}
                 </div>
                 <div class="causes-recent-info">
                     <h6><a class="text-dark" href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>

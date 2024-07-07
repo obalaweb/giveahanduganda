@@ -14,99 +14,110 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Notifications\Notification;
 
-class Setting extends Page implements HasForms {
+class Setting extends Page implements HasForms
+{
 
-	public ?array $data = [];
-	public $settings;
+    public ?array $data = [];
+    public $settings;
 
-	private static ?string $model = Settings::class;
-	protected static ?string $navigationGroup = 'Settings';
-	protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
-	protected static ?int $navigationSort = 3;
-	protected static string $view = 'filament.pages.setting';
+    private static ?string $model = Settings::class;
+    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static ?int $navigationSort = 3;
+    protected static string $view = 'filament.pages.setting';
 
-	use InteractsWithForms;
+    use InteractsWithForms;
 
-	public function mount($settings = null): void {
-		if ($settings === null) {
-			$settings = Settings::first();
-		}
+    public function mount($settings = null): void
+    {
+        if ($settings === null) {
+            $settings = Settings::first();
+        }
 
-		$this->settings = $settings;
+        $this->settings = $settings;
 
-		if ($this->settings) {
-			$this->form->fill($this->settings->toArray());
-		}
-	}
+        if ($this->settings) {
+            $this->form->fill($this->settings->toArray());
+        }
+    }
 
-	public function save(): void {
+    public function save(): void
+    {
 
-		$data = $this->form->getState();
+        $data = $this->form->getState();
 
-		try {
+        try {
 
-			if ($this->settings) {
+            if ($this->settings) {
 
-				$this->settings->update($data);
+                $this->settings->update($data);
+                Notification::make()
+                    ->title('Settings updated successfully')
+                    ->success()
+                    ->send();
+            } else {
 
-			} else {
+                Settings::create($data);
+                Notification::make()
+                    ->title('Settings created successfully')
+                    ->success()
+                    ->send();
+            }
+        } catch (Halt $exception) {
 
-				Settings::create($data);
+            return;
+        }
+    }
 
-			}
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Section::make('Global Setting')
+                    ->schema([
+                        TextInput::make('name')
+                            ->required(),
 
-		} catch (Halt $exception) {
+                        FileUpload::make('logo')
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '3.43:1',
+                            ])
+                            ->preserveFilenames()
+                            ->image(),
 
-			return;
-		}
-	}
+                        TextInput::make('phone')
+                            ->required(),
 
-	public function form(Form $form): Form {
-		return $form
-			->schema([
-				Section::make('Global Setting')
-					->schema([
-						TextInput::make('name')
-							->required(),
+                        TextInput::make('email')
+                            ->required(),
 
-						FileUpload::make('logo')
-							->imageEditor()
-							->imageEditorAspectRatios([
-								'3.43:1',
-							])
-							->preserveFilenames()
-							->image(),
+                        Textarea::make('address'),
 
-						TextInput::make('phone')
-							->required(),
+                        RichEditor::make('about')
+                            ->required(),
 
-						TextInput::make('email')
-							->required(),
+                        TextInput::make('fb_link')
+                            ->required(),
 
-						Textarea::make('address'),
+                        TextInput::make('twitter_link')
+                            ->required(),
 
-						RichEditor::make('about')
-							->required(),
+                        TextInput::make('whatsapp_no')
+                            ->required(),
+                    ]),
+            ])
+            ->statePath('data');
+    }
 
-						TextInput::make('fb_link')
-							->required(),
-
-						TextInput::make('twitter_link')
-							->required(),
-
-						TextInput::make('whatsapp_no')
-							->required(),
-					]),
-			])
-			->statePath('data');
-	}
-
-	protected function getFormActions(): array {
-		return [
-			Action::make('save')
-				->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
-				->submit('save'),
-		];
-	}
+    protected function getFormActions(): array
+    {
+        return [
+            Action::make('save')
+                ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
+                ->submit('save'),
+        ];
+    }
 }

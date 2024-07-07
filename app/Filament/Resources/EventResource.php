@@ -7,6 +7,7 @@ use App\Models\Event;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -37,7 +38,7 @@ class EventResource extends Resource
                             ->columnSpanFull(),
                         TextInput::make('name'),
                         TextInput::make('category'),
-                        MarkdownEditor::make('about')
+                        RichEditor::make('about')
                             ->columnSpanFull(),
                         Textarea::make('venue'),
                         DatePicker::make('date'),

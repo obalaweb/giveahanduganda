@@ -56,12 +56,8 @@
                                     <div class="col-lg-6">
                                         <div class="event-venue-content">
                                             <h5>Venue</h5>
-                                            <div class="event-venue-list">
-                                                <ul>
-                                                    <li><i class="fa-regular fa-calendar-days"></i>
-                                                        {!! $event->venue !!}
-                                                    </li>
-                                                </ul>
+                                            <div>
+                                                {!! $event->venue !!}
                                             </div>
                                         </div>
                                     </div>
