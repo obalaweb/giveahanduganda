@@ -22,7 +22,7 @@
                                             alt="">
                                     </figure>
                                 </div>
-                                <p>{{ getAbout() }}</p>
+                                <p>{!! getAbout() !!}</p>
                                 <ul class="social-links mt-40">
                                     <li><a href="#0"> <i class="flaticon-facebook-app-symbol"></i></a></li>
                                     <li><a href="#0"><i class="fa-brands fa-instagram"></i></a></li>
