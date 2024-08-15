@@ -58,6 +58,7 @@ class HomePageResource extends Page
                     ->schema([
                         FileUpload::make('main_image')
                             ->label('Slider Image')
+                            ->imageEditor()
                             ->image(),
                         TextInput::make('what_we_do_title')
                             ->required(),
