@@ -59,6 +59,8 @@ class AboutPageResource extends Page
                         TextInput::make('cta_title')
                             ->required(),
                         FileUpload::make('cta_image')
+                            ->imageEditor()
+                            ->image()
                             ->required(),
                         TextInput::make('cta_video')
                             ->required(),
