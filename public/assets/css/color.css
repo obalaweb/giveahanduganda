@@ -1,72 +1,72 @@
 :root {
-  --theme-color: #00715D;
-  --primary-color:#25283A;
-  --secondary-color: #F65024;
-  --white-color:#FFFFFF;
-  --base-color:#6F7775;
+    --theme-color: #00715d;
+    --primary-color: #25283a;
+    --secondary-color: #f65024;
+    --white-color: #ffffff;
+    --base-color: #6f7775;
 
-
-  --primary-font: 'Yeseva One';
-  --secondary-font: 'Poppins';
-  --subtitle-font: 'Caveat';
+    --primary-font: "Yeseva One";
+    --secondary-font: "Poppins";
+    --subtitle-font: "Caveat";
 }
 
 /* template-color */
 
-.scroll-top{
-  background: var(--theme-color);
+.scroll-top {
+    background: var(--theme-color);
 }
 
-.home-two-header .main-menu .navigation > li > a{
-  color: var(--white-color);
+.home-two-header .main-menu .navigation > li > a {
+    color: var(--white-color);
 }
 
-.home-two-header .sticky-header .main-menu .navigation > li > a{
-  color: var(--primary-color);
+.home-two-header .sticky-header .main-menu .navigation > li > a {
+    color: var(--primary-color);
 }
 
-.home-two-header .sticky-header .main-menu .navigation > li > a:hover{
-  color: #EB9309 !important;
+.home-two-header .sticky-header .main-menu .navigation > li > a:hover {
+    color: #eb1031 !important;
 }
 
 .main-menu .navigation > li > a:hover,
 .main-menu .navigation > li > ul > li > a:hover,
-.main-menu .navigation > li > .megamenu li > a:hover{
-	color: #EB9309 !important;
+.main-menu .navigation > li > .megamenu li > a:hover {
+    color: #eb1031 !important;
 }
 
-.main-menu .navigation > li > .active, .style-three .main-menu .navigation > li > .active{
-  position: relative;
-  color: #EB9309;
+.main-menu .navigation > li > .active,
+.style-three .main-menu .navigation > li > .active {
+    position: relative;
+    color: #eb1031;
 }
 
-.main-menu .navigation > li > ul > li .active{
-  position: relative;
-  color: #1F2230;
+.main-menu .navigation > li > ul > li .active {
+    position: relative;
+    color: #1f2230;
 }
 
-.main-menu .navigation > li > ul > li > ul > li > a:hover{
-  color: #ffffff;
+.main-menu .navigation > li > ul > li > ul > li > a:hover {
+    color: #ffffff;
 }
 
-.handle-preloader.home-1{
-	background: #7FB432;;
+.handle-preloader.home-1 {
+    background: #efde79;
 }
 
-.sticky-header{
-  background: #21293B;
+.sticky-header {
+    background: #21293b;
 }
-.style-three .sticky-header .main-menu .navigation > li a{
-  color: #ffffff;
+.style-three .sticky-header .main-menu .navigation > li a {
+    color: #ffffff;
 }
-.style-three .sticky-header .main-menu .navigation > li .active{
-  color: #EB9309;
+.style-three .sticky-header .main-menu .navigation > li .active {
+    color: #eb1031;
 }
-.style-three .sticky-header .main-menu .navigation > li ul li .active{
-  color: #21293B;
+.style-three .sticky-header .main-menu .navigation > li ul li .active {
+    color: #21293b;
 }
-.main-menu .navigation > li > ul > li:hover > a, 
+.main-menu .navigation > li > ul > li:hover > a,
 .main-menu .navigation > li > .megamenu li:hover > a,
-.main-header .sticky-header .main-menu .navigation > li ul li a:hover{
-  color: #1F2230 !important;
+.main-header .sticky-header .main-menu .navigation > li ul li a:hover {
+    color: #1f2230 !important;
 }

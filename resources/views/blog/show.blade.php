@@ -6,7 +6,7 @@
         }
 
         a:hover {
-            color: #eb9309;
+            color: #EB1031;
             text-decoration: underline;
         }
 
@@ -15,7 +15,7 @@
             padding: 30px 46px;
             background: rgba(248, 155, 18, 0.1);
             border-radius: 5px;
-            border-left: 5px solid #eb9309;
+            border-left: 5px solid #EB1031;
         }
     </style>
 
