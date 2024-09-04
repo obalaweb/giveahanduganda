@@ -129,17 +129,14 @@
                         <div class="home3-about-right-wrapper">
                             {!! $pageSetting->about_us_description !!}
                             <ul>
-                                @php
-                                    $milestone = json_decode($pageSetting->milestone);
-                                @endphp
-                                @forelse($milestone as $stone)
+                                @forelse($pageSetting->milestone as $stone)
                                     <li>
                                         <div class="home3-about-icon">
                                             <i class="fa-solid fa-check"></i>
                                         </div>
                                         <div class="home3-about-info">
-                                            <h6>{{ $stone->title }}</h6>
-                                            <p>{{ $stone->description }}</p>
+                                            <h6>{{ $stone['title'] }}</h6>
+                                            <p>{{ $stone['description'] }}</p>
                                         </div>
                                     </li>
                                 @empty

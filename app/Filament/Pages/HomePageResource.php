@@ -91,6 +91,12 @@ class HomePageResource extends Page
                             ->imageEditor()
                             ->preserveFilenames()
                             ->image(),
+                        Repeater::make('milestone')->schema([
+                            TextInput::make('title')
+                                ->label('Title'),
+                            Textarea::make('description')
+                                ->label('Description'),
+                        ])
                     ]),
             ])
             ->statePath('data');
