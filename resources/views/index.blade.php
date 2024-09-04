@@ -129,8 +129,7 @@
                         <div class="home3-about-right-wrapper">
                             {!! $pageSetting->about_us_description !!}
                             <ul>
-                                @dd($pageSetting->milestone)
-                                {{-- @forelse($pageSetting->milestone as $stone)
+                                @forelse($pageSetting->milestone as $stone)
                                     <li>
                                         <div class="home3-about-icon">
                                             <i class="fa-solid fa-check"></i>
@@ -141,7 +140,7 @@
                                         </div>
                                     </li>
                                 @empty
-                                @endforelse --}}
+                                @endforelse
                             </ul>
                             <a href="{{ route('aboutUs') }}" class="btn-1 btn-2"> Learn More <span></span></a>
                         </div>
